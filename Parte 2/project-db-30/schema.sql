@@ -8,7 +8,11 @@
  * Matilde Moreira, 84137
  * Duarte Oliveira, 94192
  ***********************************************************************/
-
+DROP TABLE IF EXISTS Element;
+DROP TABLE IF EXISTS Substation;
+DROP TABLE IF EXISTS Analyst;
+DROP TABLE IF EXISTS Supervisor;
+DROP TABLE IF EXISTS Person;
 
  CREATE TABLE Person(
     name VARCHAR(80) ,
@@ -20,17 +24,37 @@
     PRIMARY KEY(name,address)
  );
 
+CREATE TABLE Supervisor(
+    name VARCHAR(80),
+    address VARCHAR(120),
+    PRIMARY KEY(name,address),
+    FOREIGN KEY(name,address) REFERENCES Person(name,address)
+);
+CREATE TABLE Analyst(
+    name VARCHAR(80) NOT NULL,
+    address VARCHAR(120) NOT NULL,
+    PRIMARY KEY(name,address),
+    FOREIGN KEY(name,address) REFERENCES Person(name,address)
+);
+
+
+CREATE TABLE Substation(
+  locality_name VARCHAR(120),
+  gps_coords VARCHAR(120),
+  PRIMARY KEY(gps_coords)
+);
+
+
+
+
 INSERT INTO Person VALUES ('Maria Francisca','Rua Estrada da Cruzinha','97959','2');
 INSERT INTO Person VALUES ('Eduardo','Rua Estrada da Cruzinha','9794','1');
+INSERT INTO Supervisor VALUES ('Maria Francisca','Rua Estrada da Cruzinha');
 
 SELECT * FROM Person;
+SELECT * FROM Supervisor;
 
 
-
-
-/*
- Matilde
- */
 
 
 
