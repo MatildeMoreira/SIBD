@@ -43,7 +43,53 @@ SELECT * FROM Person;
  Duarte
  */
 
+CREATE TABLE Element(
+    id INTEGER,
+    PRIMARY KEY(eid)
+    -- The id of an element cannot exist in line, bus bar and transformer at the same time
+    -- Every if of element must exist either in line, bus bar or transformer
+);
 
+CREATE TABLE Line(
+    id INTEGER,
+    impedance INTEGER,
+    PRIMARY KEY(id),
+    FOREIGN KEY(id) REFERENCES Element(id)
+);
+
+CREATE TABLE line_connection(
+    id_line INTEGER,
+    id_primary INTEGER,
+    id_secondary INTEGER,
+    PRIMARY KEY(id_line, id_primary, id_secondary),
+    FOREIGN KEY(id_line) REFERENCES Line(id),
+    FOREIGN KEY(id_primary) REFERENCES BusBar(id),
+    FOREIGN KEY(id_secondary) REFERENCES BusBar(id)
+);
+
+CREATE TABLE BusBar(
+    id INTEGER,
+    voltage INTEGER,
+    PRIMARY KEY(id),
+    FOREIGN KEY(id) REFERENCES Element(id)
+);
+
+CREATE TABLE Transformer(
+    primary_voltage INTEGER,
+    secondary_voltage INTEGER,
+    PRIMARY KEY(id),
+    FOREIGN KEY(id) REFERENCES Element(id)
+);
+
+CREATE TABLE transformer_connection(
+    id_transformer INTEGER,
+    id_primary INTEGER,
+    id_secondary INTEGER,
+    PRIMARY KEY(id_transformer, id_primary, id_secondary),
+    FOREIGN KEY(id_transformer) REFERENCES Transformer(id),
+    FOREIGN KEY(id_primary) REFERENCES BusBar(id),
+    FOREIGN KEY(id_secondary) REFERENCES BusBar(id)
+);
 
 
 
