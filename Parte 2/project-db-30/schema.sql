@@ -8,6 +8,7 @@
  * Matilde Moreira, 84137
  * Duarte Oliveira, 94192
  ***********************************************************************/
+DROP TABLE IF EXISTS BusBar;
 DROP TABLE IF EXISTS Element;
 DROP TABLE IF EXISTS Substation;
 DROP TABLE IF EXISTS Analyst;
