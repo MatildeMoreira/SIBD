@@ -106,6 +106,7 @@ create table Transformer(
     FOREIGN KEY (id_secondary,secondary_voltage) REFERENCES Bus_Bar(id,voltage)
 );
 
+
 -- Entity : Incident(id,instant, description, severity)
 CREATE TABLE Incident(
     id VARCHAR(6),
