@@ -10,7 +10,6 @@
  * Duarte, 94192
  ***********************************************************************/
 
-
 -- A. List the names of all analysts that analysed element with id 'B-789'.
 SELECT name
 FROM analyses
@@ -18,7 +17,7 @@ WHERE id = 'B-789';
 
 
 -- B. What is the name of the analyst that has reported more incidents.
-SELECT name
+SELECT name, count(id) as Numb_Incidents
 FROM analyses
 GROUP BY name,address
 HAVING count(id) >= ALL (SELECT count(id)
@@ -31,8 +30,9 @@ FROM substation s, transformer trans
 WHERE trans.latitude=s.latitude and s.longitude=trans.longitude and (trans.latitude,trans.longitude) IN (SELECT latitude,longitude
                                                                     FROM transformer
                                                                     GROUP BY latitude,longitude
-                                                                    HAVING count(*)>1)
+                                                                    HAVING count(*) >1)
 GROUP BY s.latitude,s.longitude;
+
 
 
 
@@ -43,4 +43,5 @@ GROUP BY locality_name
 HAVING count((longitude,latitude)) >= ALL(SELECT count((latitude,longitude))
                                           FROM substation
                                           GROUP BY locality_name);
+
 

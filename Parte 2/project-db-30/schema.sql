@@ -43,6 +43,16 @@ CREATE TABLE Supervisor(
 );
 
 -- Specialization,Entity : Analyst (name,address)
+CREATE TABLE Element(
+                        id VARCHAR(6),
+                        PRIMARY KEY(id)
+    -- Every Element must exist either in the table Line, Bus_Bar or
+    -- in the table Transformer.
+    -- No Element can exist at the same time in the three tables,
+    -- this is, the table Line, Bus_Bar or in the table Transformer.
+);
+
+-- Entity : Substation (latitude,longitude,locality_name)
 CREATE TABLE Analyst(
     name VARCHAR(80),
     address VARCHAR(255),
@@ -50,7 +60,7 @@ CREATE TABLE Analyst(
 	FOREIGN	KEY(name,address) REFERENCES Person(name,address)
 );
 
--- Entity : Substation (latitude,longitude,locality_name)
+-- Entity : Element(id)
 CREATE TABLE Substation(
     latitude NUMERIC(9,6),
     longitude NUMERIC(8,6),
@@ -62,20 +72,10 @@ CREATE TABLE Substation(
     --	Every Substation must exist in the table ‘Transformer’
 );
 
--- Entity : Element(id)
-CREATE TABLE Element(
-    id VARCHAR(6),
-    PRIMARY KEY(id)
-    -- Every Element must exist either in the table Line, Bus_Bar or
-    -- in the table Transformer.
-    -- No Element can exist at the same time in the three tables,
-    -- this is, the table Line, Bus_Bar or in the table Transformer.
-);
-
 -- Specialization, Entity : Line(id,impedance)
 CREATE TABLE Line(
     id VARCHAR(6),
-    impedance NUMERIC(5,2) NOT NULL,
+    impedance NUMERIC(6,2) NOT NULL,
     PRIMARY KEY(id),
     FOREIGN KEY(id) REFERENCES Element(id)
     -- Every Line must exist in	the	table ‘line_connection’
