@@ -1089,7 +1089,7 @@ INSERT INTO Line_Incident (id,instant,point) VALUES ('L-988','2020-10-23 09:18:0
 INSERT INTO Line_Incident (id,instant,point) VALUES ('L-989','2020-10-31 06:19:04.000',7.33);
 INSERT INTO Line_Incident (id,instant,point) VALUES ('L-989','2020-10-06 19:08:37.000',8.40);
 
--- Table: analyzes
+-- Table: analyses
 INSERT INTO analyses (id,instant,name,address,report) VALUES ('B-101','2020-10-04 22:02:17.000','Joao Cardoso','N039 01, Casa 8, 5902-878, Penafiel, Setúbal','The problem has not solution');
 INSERT INTO analyses (id,instant,name,address,report) VALUES ('B-120','2020-11-02 10:07:51.000','Duarte Oliveira','N9 0, Apto. 257, 1728-205, Rebordosa, Vila Real','The problem is solved');
 INSERT INTO analyses (id,instant,name,address,report) VALUES ('B-120','2020-11-12 10:14:11.000','Duarte Oliveira','Largo Daniel Vaz 481, Casa 8, 1148-397, Portimão, Leiria','The problem has not solution');

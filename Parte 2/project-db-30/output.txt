@@ -1,0 +1,69 @@
+/**********************************************************************
+ *                               OUTPUT.TXT
+ *
+ * Subject: Information Systems and Databases
+ * Laboratory Teacher: Ines Filipe
+ * Senior Lecturer: Paulo Carreira
+ *
+ * Joao Pedro, 84096
+ * Matilde, 84137
+ * Duarte, 94192
+ ***********************************************************************/
+
+
+---------------------------------------------------------------------------
+-- A. List the names of all analysts that analysed element with id 'B-789'.
+---------------------------------------------------------------------------
+
+     name     
+--------------
+ Teddy Casey
+ Joao Cardoso
+ Jacob Pierre
+(3 rows)
+
+
+---------------------------------------------------------------------------
+-- B. What is the name of the analyst that has reported more incidents.
+---------------------------------------------------------------------------
+
+
+    name     | numb_incidents 
+-------------+----------------
+ Teddy Casey |              8
+(1 row)
+
+
+
+
+---------------------------------------------------------------------------
+-- C. List all substations with more than one transformer.
+---------------------------------------------------------------------------
+
+
+
+ latitude  | longitude | locality_name |      name       |                              address                               
+-----------+-----------+---------------+-----------------+--------------------------------------------------------------------
+ 37.102020 | -8.674220 | Lagos         | Elton John      | N55 67, Lote 04, 5450-652, Vila Franca de Xira, Guarda
+ 37.102050 | -8.674220 | Lagos         | Rui Constantino | N88 5560, Bloco 60, 9403-999, Braga, Leiria
+ 38.015070 | -7.863230 | Beja          | Elvia Bowen     | N55 67, Lote 04, 5450-652, Vila Franca de Xira, Guarda
+ 38.566670 | -7.900030 | Evora         | Lorena Wolf     | N475-9 9368, Apto. 018, 6596-902, Moura, Setúbal
+ 38.716690 | -9.133330 | Lisboa        | Duarte Oliveira | N9 0, Apto. 257, 1728-205, Rebordosa, Vila Real
+ 38.753800 | -9.230810 | Amadora       | Joao Cardoso    | Estrada Bruno Teixeira 6, Bloco 79, 2374-517, Barreiro, Portalegre
+ 39.233340 | -8.683330 | Santarem      | Elvia Bowen     | N18 4, Apto. 831, 4737-949, São Mamede de Infesta, Leiria
+ 39.743620 | -8.807050 | Leiria        | Angelina Jolie  | N206 5745, Casa 6, 2506-490, Setúbal, Viana do Castelo
+ 41.149620 | -8.610990 | Porto         | Oscar Wilde     | N039 01, Casa 8, 5902-878, Penafiel, Setúbal
+(9 rows)
+
+
+
+---------------------------------------------------------------------------------------------
+-- D. Find the names of the localities that have more substations than every other locality.
+---------------------------------------------------------------------------------------------
+
+
+ locality_name | numb_substations 
+---------------+------------------
+ Faro          |                7
+(1 row)
+

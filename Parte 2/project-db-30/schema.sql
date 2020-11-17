@@ -14,7 +14,6 @@
 DROP TABLE IF EXISTS Person,Supervisor,Analyst,Element,Substation,Incident,
 Line_Incident,line_connection,Line,Transformer,Bus_Bar,supervises,analyses CASCADE;
 
----> testar com o cascade e sem o cascade
 
 -- The CREATE TABLE statement is used to create a new table in a database.
 
@@ -24,8 +23,8 @@ CREATE TABLE Person(
     address VARCHAR(255),
     Phone VARCHAR(15)  NOT NULL,
     Tax_ID INTEGER NOT NULL,
-    UNIQUE(Phone),  --(IC-6) Phone numbers are unique
-    UNIQUE(Tax_ID), --(IC-7) Tax ID numbers are unique
+    UNIQUE(Phone),
+    UNIQUE(Tax_ID),
 
     PRIMARY KEY (name,address)
 
@@ -33,6 +32,8 @@ CREATE TABLE Person(
     --	or	in the	table	'Analyst'
 
 );
+
+-- (IC-5) Persons cannot analyse incidents regarding Elements of a Substation they supervises
 
 -- Specialization,Entity : Supervisor (name,address)
 CREATE TABLE Supervisor(
@@ -43,16 +44,6 @@ CREATE TABLE Supervisor(
 );
 
 -- Specialization,Entity : Analyst (name,address)
-CREATE TABLE Element(
-                        id VARCHAR(6),
-                        PRIMARY KEY(id)
-    -- Every Element must exist either in the table Line, Bus_Bar or
-    -- in the table Transformer.
-    -- No Element can exist at the same time in the three tables,
-    -- this is, the table Line, Bus_Bar or in the table Transformer.
-);
-
--- Entity : Substation (latitude,longitude,locality_name)
 CREATE TABLE Analyst(
     name VARCHAR(80),
     address VARCHAR(255),
@@ -60,7 +51,7 @@ CREATE TABLE Analyst(
 	FOREIGN	KEY(name,address) REFERENCES Person(name,address)
 );
 
--- Entity : Element(id)
+-- Entity : Substation (latitude,longitude,locality_name,name,address)
 CREATE TABLE Substation(
     latitude NUMERIC(9,6),
     longitude NUMERIC(8,6),
@@ -70,6 +61,16 @@ CREATE TABLE Substation(
     address VARCHAR(255) NOT NULL,
     FOREIGN KEY(name,address) REFERENCES Supervisor(name, address)
     --	Every Substation must exist in the table ‘Transformer’
+);
+
+-- Entity : Element(id)
+CREATE TABLE Element(
+    id VARCHAR(6),
+    PRIMARY KEY(id)
+    -- Every Element must exist either in the table Line, Bus_Bar or
+    -- in the table Transformer.
+    -- No Element can exist at the same time in the three tables,
+    -- this is, the table Line, Bus_Bar or in the table Transformer.
 );
 
 -- Specialization, Entity : Line(id,impedance)
@@ -90,7 +91,7 @@ CREATE TABLE Bus_Bar(
     FOREIGN KEY(id) REFERENCES Element(id)
 );
 
--- Specialization, Entity : Transformer(id,primary_voltage, secondary_voltage)
+-- Specialization, Entity : Transformer(id,primary_voltage,secondary_voltage,id_primary,id_secondary)
 create table Transformer(
 	id VARCHAR(6),
 	primary_voltage NUMERIC(6,2) NOT NULL,
@@ -126,7 +127,7 @@ CREATE TABLE Line_Incident(
     FOREIGN KEY (id,instant) REFERENCES Incident(id,instant)
 );
 
--- Association : analyzes(name,address,id,instant)
+-- Association : analyzes(report,name,address,id,instant)
 CREATE TABLE analyses(
     report TEXT,
     name VARCHAR(80) NOT NULL,
@@ -149,5 +150,5 @@ CREATE TABLE line_connection(
   FOREIGN KEY(id_Line) REFERENCES Line(id),
   FOREIGN KEY (id_primary) REFERENCES Bus_Bar(id) ,
   FOREIGN KEY (id_secondary) REFERENCES Bus_Bar(id),
-  CHECK ( id_primary != id_secondary ) --  (IC-4) The Bus-Bars of a line connection must be different
+  CHECK ( id_primary != id_secondary )
 );
