@@ -14,6 +14,9 @@
 -- The INSERT INTO statement is used to insert new records in a specific table.
 
  -- Table: person
+INSERT INTO person (name,address,phone,taxid) VALUES ('Matilde Moreira','N664-7 77, Casa 22, 5936-213, Porto, Vila Real',964356243,2146322191);
+
+
 INSERT INTO person (name,address,phone,taxid) VALUES ('Angelina Jolie','Beco Letícia Nogueira 5, Casa 9, 8877-131, Vila Nova de Santo André, Évora',964356343,196022191);
 INSERT INTO person (name,address,phone,taxid) VALUES ('Angelina Jolie','N206 5745, Casa 6, 2506-490, Setúbal, Viana do Castelo',938731543,216187323);
 INSERT INTO person (name,address,phone,taxid) VALUES ('Angelina Jolie','N549 4, Lote 57, 6283-982, Barcelos, Guarda',928506284,139124126);
@@ -136,6 +139,7 @@ INSERT INTO person (name,address,phone,taxid) VALUES ('Teddy Casey','N9 79, Apto
 
 
 -- Table: supervisor
+INSERT INTO supervisor (name,address) VALUES ('Matilde Moreira','N664-7 77, Casa 22, 5936-213, Porto, Vila Real');
 INSERT INTO supervisor (name,address) VALUES ('Joao Cardoso','Estrada Bruno Teixeira 6, Bloco 79, 2374-517, Barreiro, Portalegre');
 INSERT INTO supervisor (name,address) VALUES ('Angelina Jolie','N206 5745, Casa 6, 2506-490, Setúbal, Viana do Castelo');
 INSERT INTO supervisor (name,address) VALUES ('Angelina Jolie','N88 5560, Bloco 60, 9403-999, Braga, Leiria');
@@ -521,6 +525,9 @@ INSERT INTO busbar (id,voltage) VALUES ('B-997',814.3);
 INSERT INTO busbar (id,voltage) VALUES ('B-998',115.9);
 INSERT INTO busbar (id,voltage) VALUES ('B-999',989.6);
 
+--INSERT INTO element (id) VALUES ('T-980');
+--INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-980',371.1,732.8,'B-901','B-647',40.66101,-7.90972);
+
 -- Table: Transformer
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-137',371.1,732.8,'B-163','B-647',40.66101,-7.90972);
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-144',371.1,148.7,'B-163','B-640',40.53733,-7.26575);
@@ -563,10 +570,10 @@ INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-967',39
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-968',350.6,732.8,'B-821','B-647',39.23334,-8.68333);
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-969',379.5,471.1,'B-334','B-940',37.10202,-8.67422);
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-970',471.1,371.1,'B-940','B-163',38.01507,-7.86323);
-INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-971',524.1,371.1,'B-991','B-940',38.01508,-7.86323);
+INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-971',524.1,471.1,'B-991','B-940',38.01508,-7.86323);
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-972',193.4,355.2,'B-766','B-812',37.01870,-7.92716);
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-973',205.3,524.1,'B-901','B-991',40.66101,-7.90971);
-INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-974',471.1,371.1,'B-880','B-940',38.71670,-9.13333);
+INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-974',471.1,471.1,'B-880','B-940',38.71670,-9.13333);
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-975',327.9,638.3,'B-275','B-664',37.10202,-8.67422);
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-976',241.6,912.1,'B-807','B-120',38.75380,-9.23081);
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-977',668.7,398.7,'B-128','B-937',39.23336,-8.68333);
