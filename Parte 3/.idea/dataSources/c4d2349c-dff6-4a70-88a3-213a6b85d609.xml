@@ -13957,7 +13957,7 @@ false posixrules
     <database id="3138" parent="1" name="ist425437">
       <ObjectId>3356885</ObjectId>
       <Owner>ciist_oper</Owner>
-      <IntrospectionStateNumber>7881586</IntrospectionStateNumber>
+      <IntrospectionStateNumber>7883828</IntrospectionStateNumber>
       <Current>1</Current>
     </database>
     <database id="3139" parent="1" name="ist425442">
@@ -28242,7 +28242,7 @@ false posixrules
       <Comment>standard public schema</Comment>
       <StateNumber>2148704</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>7881586</IntrospectionStateNumber>
+      <IntrospectionStateNumber>7883828</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="6706" parent="3138" name="btree">
@@ -28360,7 +28360,13 @@ false posixrules
       <Owner>ist425437</Owner>
       <StateNumber>7881521</StateNumber>
     </table>
-    <routine id="6728" parent="6705" name="check_analystsubstation_proc">
+    <view id="6728" parent="6705" name="supervisorstheirsubst">
+      <ObjectId>5818176</ObjectId>
+      <SourceTextLength>302</SourceTextLength>
+      <Owner>ist425437</Owner>
+      <StateNumber>7890242</StateNumber>
+    </view>
+    <routine id="6729" parent="6705" name="check_analystsubstation_proc">
       <ObjectId>5818112</ObjectId>
       <Owner>ist425437</Owner>
       <SourceTextLength>437</SourceTextLength>
@@ -28371,7 +28377,7 @@ false posixrules
       <RoutineKind>function</RoutineKind>
       <Rows>0.0</Rows>
     </routine>
-    <routine id="6729" parent="6705" name="check_pv_busbar_pbbid_proc">
+    <routine id="6730" parent="6705" name="check_pv_busbar_pbbid_proc">
       <ObjectId>5818108</ObjectId>
       <Owner>ist425437</Owner>
       <SourceTextLength>397</SourceTextLength>
@@ -28382,7 +28388,7 @@ false posixrules
       <RoutineKind>function</RoutineKind>
       <Rows>0.0</Rows>
     </routine>
-    <routine id="6730" parent="6705" name="check_sv_busbar_sbbid_proc">
+    <routine id="6731" parent="6705" name="check_sv_busbar_sbbid_proc">
       <ObjectId>5818110</ObjectId>
       <Owner>ist425437</Owner>
       <SourceTextLength>403</SourceTextLength>
@@ -28393,39 +28399,39 @@ false posixrules
       <RoutineKind>function</RoutineKind>
       <Rows>0.0</Rows>
     </routine>
-    <column id="6731" parent="6717" name="instant">
+    <column id="6732" parent="6717" name="instant">
       <Position>1</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>7881525</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="6732" parent="6717" name="id">
+    <column id="6733" parent="6717" name="id">
       <Position>2</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>7881525</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="6733" parent="6717" name="report">
+    <column id="6734" parent="6717" name="report">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>7881525</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="6734" parent="6717" name="name">
+    <column id="6735" parent="6717" name="name">
       <Position>4</Position>
       <DataType>varchar(80)|0s</DataType>
       <StateNumber>7881525</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="6735" parent="6717" name="address">
+    <column id="6736" parent="6717" name="address">
       <Position>5</Position>
       <DataType>varchar(80)|0s</DataType>
       <StateNumber>7881525</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="6736" parent="6717" name="analyses_pkey">
+    <index id="6737" parent="6717" name="analyses_pkey">
       <ObjectId>5816365</ObjectId>
       <StateNumber>7881525</StateNumber>
       <ColNames>instant
@@ -28433,7 +28439,7 @@ id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="6737" parent="6717" name="analyses_pkey">
+    <key id="6738" parent="6717" name="analyses_pkey">
       <ObjectId>5816366</ObjectId>
       <StateNumber>7881525</StateNumber>
       <ColNames>instant
@@ -28441,7 +28447,7 @@ id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>analyses_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="6738" parent="6717" name="analyses_instant_fkey">
+    <foreign-key id="6739" parent="6717" name="analyses_instant_fkey">
       <ObjectId>5816367</ObjectId>
       <StateNumber>7881525</StateNumber>
       <ColNames>instant
@@ -28453,7 +28459,7 @@ id</ColNames>
       <RefColNames>instant
 id</RefColNames>
     </foreign-key>
-    <foreign-key id="6739" parent="6717" name="analyses_name_fkey">
+    <foreign-key id="6740" parent="6717" name="analyses_name_fkey">
       <ObjectId>5816372</ObjectId>
       <StateNumber>7881525</StateNumber>
       <ColNames>name
@@ -28465,7 +28471,7 @@ address</ColNames>
       <RefColNames>name
 address</RefColNames>
     </foreign-key>
-    <trigger id="6740" parent="6717" name="check_analystsubstation">
+    <trigger id="6741" parent="6717" name="check_analystsubstation">
       <ObjectId>5818113</ObjectId>
       <StateNumber>7889958</StateNumber>
       <Turn>before-row</Turn>
@@ -28473,21 +28479,21 @@ address</RefColNames>
       <FireMode>origin</FireMode>
       <CallRoutineId>5818112</CallRoutineId>
     </trigger>
-    <column id="6741" parent="6718" name="name">
+    <column id="6742" parent="6718" name="name">
       <Position>1</Position>
       <DataType>varchar(80)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>7881517</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="6742" parent="6718" name="address">
+    <column id="6743" parent="6718" name="address">
       <Position>2</Position>
       <DataType>varchar(80)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>7881517</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="6743" parent="6718" name="analyst_pkey">
+    <index id="6744" parent="6718" name="analyst_pkey">
       <ObjectId>5816263</ObjectId>
       <StateNumber>7881517</StateNumber>
       <ColNames>name
@@ -28495,7 +28501,7 @@ address</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="6744" parent="6718" name="analyst_pkey">
+    <key id="6745" parent="6718" name="analyst_pkey">
       <ObjectId>5816264</ObjectId>
       <StateNumber>7881517</StateNumber>
       <ColNames>name
@@ -28503,7 +28509,7 @@ address</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>analyst_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="6745" parent="6718" name="analyst_name_fkey">
+    <foreign-key id="6746" parent="6718" name="analyst_name_fkey">
       <ObjectId>5816265</ObjectId>
       <StateNumber>7881517</StateNumber>
       <ColNames>name
@@ -28515,34 +28521,34 @@ address</ColNames>
       <RefColNames>name
 address</RefColNames>
     </foreign-key>
-    <column id="6746" parent="6719" name="id">
+    <column id="6747" parent="6719" name="id">
       <Position>1</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>7881520</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="6747" parent="6719" name="voltage">
+    <column id="6748" parent="6719" name="voltage">
       <Position>2</Position>
       <DataType>numeric(7,4 digit)|0s</DataType>
       <StateNumber>7881520</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <index id="6748" parent="6719" name="busbar_pkey">
+    <index id="6749" parent="6719" name="busbar_pkey">
       <ObjectId>5816288</ObjectId>
       <StateNumber>7881520</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="6749" parent="6719" name="busbar_pkey">
+    <key id="6750" parent="6719" name="busbar_pkey">
       <ObjectId>5816289</ObjectId>
       <StateNumber>7881520</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>busbar_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="6750" parent="6719" name="busbar_id_fkey">
+    <foreign-key id="6751" parent="6719" name="busbar_id_fkey">
       <ObjectId>5816290</ObjectId>
       <StateNumber>7881520</StateNumber>
       <ColNames>id</ColNames>
@@ -28552,54 +28558,54 @@ address</RefColNames>
       <RefKeyName>element_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="6751" parent="6720" name="id">
+    <column id="6752" parent="6720" name="id">
       <Position>1</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>7881519</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="6752" parent="6720" name="element_pkey">
+    <index id="6753" parent="6720" name="element_pkey">
       <ObjectId>5816283</ObjectId>
       <StateNumber>7881519</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="6753" parent="6720" name="element_pkey">
+    <key id="6754" parent="6720" name="element_pkey">
       <ObjectId>5816284</ObjectId>
       <StateNumber>7881519</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>element_pkey</UnderlyingIndexName>
     </key>
-    <column id="6754" parent="6721" name="instant">
+    <column id="6755" parent="6721" name="instant">
       <Position>1</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>7881523</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="6755" parent="6721" name="id">
+    <column id="6756" parent="6721" name="id">
       <Position>2</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>7881523</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="6756" parent="6721" name="description">
+    <column id="6757" parent="6721" name="description">
       <Position>3</Position>
       <DataType>varchar(250)|0s</DataType>
       <StateNumber>7881523</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="6757" parent="6721" name="severity">
+    <column id="6758" parent="6721" name="severity">
       <Position>4</Position>
       <DataType>varchar(30)|0s</DataType>
       <StateNumber>7881523</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="6758" parent="6721" name="incident_pkey">
+    <index id="6759" parent="6721" name="incident_pkey">
       <ObjectId>5816345</ObjectId>
       <StateNumber>7881523</StateNumber>
       <ColNames>instant
@@ -28607,7 +28613,7 @@ id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="6759" parent="6721" name="incident_pkey">
+    <key id="6760" parent="6721" name="incident_pkey">
       <ObjectId>5816346</ObjectId>
       <StateNumber>7881523</StateNumber>
       <ColNames>instant
@@ -28615,7 +28621,7 @@ id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>incident_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="6760" parent="6721" name="incident_id_fkey">
+    <foreign-key id="6761" parent="6721" name="incident_id_fkey">
       <ObjectId>5816347</ObjectId>
       <StateNumber>7881523</StateNumber>
       <ColNames>id</ColNames>
@@ -28625,46 +28631,46 @@ id</ColNames>
       <RefKeyName>element_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="6761" parent="6722" name="id">
+    <column id="6762" parent="6722" name="id">
       <Position>1</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>7881522</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="6762" parent="6722" name="impedance">
+    <column id="6763" parent="6722" name="impedance">
       <Position>2</Position>
       <DataType>numeric(7,4 digit)|0s</DataType>
       <StateNumber>7881522</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="6763" parent="6722" name="pbbid">
+    <column id="6764" parent="6722" name="pbbid">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
       <StateNumber>7881522</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="6764" parent="6722" name="sbbid">
+    <column id="6765" parent="6722" name="sbbid">
       <Position>4</Position>
       <DataType>varchar(10)|0s</DataType>
       <StateNumber>7881522</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="6765" parent="6722" name="line_pkey">
+    <index id="6766" parent="6722" name="line_pkey">
       <ObjectId>5816325</ObjectId>
       <StateNumber>7881522</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="6766" parent="6722" name="line_pkey">
+    <key id="6767" parent="6722" name="line_pkey">
       <ObjectId>5816326</ObjectId>
       <StateNumber>7881522</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>line_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="6767" parent="6722" name="line_id_fkey">
+    <foreign-key id="6768" parent="6722" name="line_id_fkey">
       <ObjectId>5816327</ObjectId>
       <StateNumber>7881522</StateNumber>
       <ColNames>id</ColNames>
@@ -28674,7 +28680,7 @@ id</ColNames>
       <RefKeyName>element_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="6768" parent="6722" name="line_pbbid_fkey">
+    <foreign-key id="6769" parent="6722" name="line_pbbid_fkey">
       <ObjectId>5816332</ObjectId>
       <StateNumber>7881522</StateNumber>
       <ColNames>pbbid</ColNames>
@@ -28684,7 +28690,7 @@ id</ColNames>
       <RefKeyName>busbar_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="6769" parent="6722" name="line_sbbid_fkey">
+    <foreign-key id="6770" parent="6722" name="line_sbbid_fkey">
       <ObjectId>5816337</ObjectId>
       <StateNumber>7881522</StateNumber>
       <ColNames>sbbid</ColNames>
@@ -28694,34 +28700,34 @@ id</ColNames>
       <RefKeyName>busbar_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <check id="6770" parent="6722" name="line_check">
+    <check id="6771" parent="6722" name="line_check">
       <ObjectId>5816324</ObjectId>
       <StateNumber>7881522</StateNumber>
       <ColNames>pbbid
 sbbid</ColNames>
       <Predicate>(pbbid)::text &lt;&gt; (sbbid)::text</Predicate>
     </check>
-    <column id="6771" parent="6723" name="instant">
+    <column id="6772" parent="6723" name="instant">
       <Position>1</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>7881524</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="6772" parent="6723" name="id">
+    <column id="6773" parent="6723" name="id">
       <Position>2</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>7881524</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="6773" parent="6723" name="point">
+    <column id="6774" parent="6723" name="point">
       <Position>3</Position>
       <DataType>double precision|0s</DataType>
       <StateNumber>7881524</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <index id="6774" parent="6723" name="lineincident_pkey">
+    <index id="6775" parent="6723" name="lineincident_pkey">
       <ObjectId>5816355</ObjectId>
       <StateNumber>7881524</StateNumber>
       <ColNames>instant
@@ -28729,7 +28735,7 @@ id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="6775" parent="6723" name="lineincident_pkey">
+    <key id="6776" parent="6723" name="lineincident_pkey">
       <ObjectId>5816356</ObjectId>
       <StateNumber>7881524</StateNumber>
       <ColNames>instant
@@ -28737,7 +28743,7 @@ id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>lineincident_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="6776" parent="6723" name="lineincident_instant_fkey">
+    <foreign-key id="6777" parent="6723" name="lineincident_instant_fkey">
       <ObjectId>5816357</ObjectId>
       <StateNumber>7881524</StateNumber>
       <ColNames>instant
@@ -28749,33 +28755,33 @@ id</ColNames>
       <RefColNames>instant
 id</RefColNames>
     </foreign-key>
-    <column id="6777" parent="6724" name="name">
+    <column id="6778" parent="6724" name="name">
       <Position>1</Position>
       <DataType>varchar(80)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>7881515</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="6778" parent="6724" name="address">
+    <column id="6779" parent="6724" name="address">
       <Position>2</Position>
       <DataType>varchar(80)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>7881515</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="6779" parent="6724" name="phone">
+    <column id="6780" parent="6724" name="phone">
       <Position>3</Position>
       <DataType>numeric(9)|0s</DataType>
       <StateNumber>7881515</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="6780" parent="6724" name="taxid">
+    <column id="6781" parent="6724" name="taxid">
       <Position>4</Position>
       <DataType>numeric(20)|0s</DataType>
       <StateNumber>7881515</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <index id="6781" parent="6724" name="person_pkey">
+    <index id="6782" parent="6724" name="person_pkey">
       <ObjectId>5816244</ObjectId>
       <StateNumber>7881515</StateNumber>
       <ColNames>name
@@ -28783,19 +28789,19 @@ address</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="6782" parent="6724" name="person_phone_key">
+    <index id="6783" parent="6724" name="person_phone_key">
       <ObjectId>5816246</ObjectId>
       <StateNumber>7881515</StateNumber>
       <ColNames>phone</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="6783" parent="6724" name="person_taxid_key">
+    <index id="6784" parent="6724" name="person_taxid_key">
       <ObjectId>5816248</ObjectId>
       <StateNumber>7881515</StateNumber>
       <ColNames>taxid</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="6784" parent="6724" name="person_pkey">
+    <key id="6785" parent="6724" name="person_pkey">
       <ObjectId>5816245</ObjectId>
       <StateNumber>7881515</StateNumber>
       <ColNames>name
@@ -28803,51 +28809,51 @@ address</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>person_pkey</UnderlyingIndexName>
     </key>
-    <key id="6785" parent="6724" name="person_phone_key">
+    <key id="6786" parent="6724" name="person_phone_key">
       <ObjectId>5816247</ObjectId>
       <StateNumber>7881515</StateNumber>
       <ColNames>phone</ColNames>
       <UnderlyingIndexName>person_phone_key</UnderlyingIndexName>
     </key>
-    <key id="6786" parent="6724" name="person_taxid_key">
+    <key id="6787" parent="6724" name="person_taxid_key">
       <ObjectId>5816249</ObjectId>
       <StateNumber>7881515</StateNumber>
       <ColNames>taxid</ColNames>
       <UnderlyingIndexName>person_taxid_key</UnderlyingIndexName>
     </key>
-    <column id="6787" parent="6725" name="gpslat">
+    <column id="6788" parent="6725" name="gpslat">
       <Position>1</Position>
       <DataType>numeric(9,6 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>7881518</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="6788" parent="6725" name="gpslong">
+    <column id="6789" parent="6725" name="gpslong">
       <Position>2</Position>
       <DataType>numeric(8,6 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>7881518</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="6789" parent="6725" name="locality">
+    <column id="6790" parent="6725" name="locality">
       <Position>3</Position>
       <DataType>varchar(80)|0s</DataType>
       <StateNumber>7881518</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="6790" parent="6725" name="sname">
+    <column id="6791" parent="6725" name="sname">
       <Position>4</Position>
       <DataType>varchar(80)|0s</DataType>
       <StateNumber>7881518</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="6791" parent="6725" name="saddress">
+    <column id="6792" parent="6725" name="saddress">
       <Position>5</Position>
       <DataType>varchar(80)|0s</DataType>
       <StateNumber>7881518</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="6792" parent="6725" name="substation_pkey">
+    <index id="6793" parent="6725" name="substation_pkey">
       <ObjectId>5816273</ObjectId>
       <StateNumber>7881518</StateNumber>
       <ColNames>gpslat
@@ -28855,7 +28861,7 @@ gpslong</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="6793" parent="6725" name="substation_pkey">
+    <key id="6794" parent="6725" name="substation_pkey">
       <ObjectId>5816274</ObjectId>
       <StateNumber>7881518</StateNumber>
       <ColNames>gpslat
@@ -28863,7 +28869,7 @@ gpslong</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>substation_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="6794" parent="6725" name="substation_sname_fkey">
+    <foreign-key id="6795" parent="6725" name="substation_sname_fkey">
       <ObjectId>5816275</ObjectId>
       <StateNumber>7881518</StateNumber>
       <ColNames>sname
@@ -28875,21 +28881,21 @@ saddress</ColNames>
       <RefColNames>name
 address</RefColNames>
     </foreign-key>
-    <column id="6795" parent="6726" name="name">
+    <column id="6796" parent="6726" name="name">
       <Position>1</Position>
       <DataType>varchar(80)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>7881516</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="6796" parent="6726" name="address">
+    <column id="6797" parent="6726" name="address">
       <Position>2</Position>
       <DataType>varchar(80)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>7881516</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="6797" parent="6726" name="supervisor_pkey">
+    <index id="6798" parent="6726" name="supervisor_pkey">
       <ObjectId>5816253</ObjectId>
       <StateNumber>7881516</StateNumber>
       <ColNames>name
@@ -28897,7 +28903,7 @@ address</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="6798" parent="6726" name="supervisor_pkey">
+    <key id="6799" parent="6726" name="supervisor_pkey">
       <ObjectId>5816254</ObjectId>
       <StateNumber>7881516</StateNumber>
       <ColNames>name
@@ -28905,7 +28911,7 @@ address</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>supervisor_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="6799" parent="6726" name="supervisor_name_fkey">
+    <foreign-key id="6800" parent="6726" name="supervisor_name_fkey">
       <ObjectId>5816255</ObjectId>
       <StateNumber>7881516</StateNumber>
       <ColNames>name
@@ -28917,64 +28923,64 @@ address</ColNames>
       <RefColNames>name
 address</RefColNames>
     </foreign-key>
-    <column id="6800" parent="6727" name="id">
+    <column id="6801" parent="6727" name="id">
       <Position>1</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>7881521</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="6801" parent="6727" name="pv">
+    <column id="6802" parent="6727" name="pv">
       <Position>2</Position>
       <DataType>numeric(7,4 digit)|0s</DataType>
       <StateNumber>7881521</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="6802" parent="6727" name="sv">
+    <column id="6803" parent="6727" name="sv">
       <Position>3</Position>
       <DataType>numeric(7,4 digit)|0s</DataType>
       <StateNumber>7881521</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="6803" parent="6727" name="gpslat">
+    <column id="6804" parent="6727" name="gpslat">
       <Position>4</Position>
       <DataType>numeric(9,6 digit)|0s</DataType>
       <StateNumber>7881521</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="6804" parent="6727" name="gpslong">
+    <column id="6805" parent="6727" name="gpslong">
       <Position>5</Position>
       <DataType>numeric(8,6 digit)|0s</DataType>
       <StateNumber>7881521</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="6805" parent="6727" name="pbbid">
+    <column id="6806" parent="6727" name="pbbid">
       <Position>6</Position>
       <DataType>varchar(10)|0s</DataType>
       <StateNumber>7881521</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="6806" parent="6727" name="sbbid">
+    <column id="6807" parent="6727" name="sbbid">
       <Position>7</Position>
       <DataType>varchar(10)|0s</DataType>
       <StateNumber>7881521</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="6807" parent="6727" name="transformer_pkey">
+    <index id="6808" parent="6727" name="transformer_pkey">
       <ObjectId>5816299</ObjectId>
       <StateNumber>7881521</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="6808" parent="6727" name="transformer_pkey">
+    <key id="6809" parent="6727" name="transformer_pkey">
       <ObjectId>5816300</ObjectId>
       <StateNumber>7881521</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>transformer_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="6809" parent="6727" name="transformer_id_fkey">
+    <foreign-key id="6810" parent="6727" name="transformer_id_fkey">
       <ObjectId>5816301</ObjectId>
       <StateNumber>7881521</StateNumber>
       <ColNames>id</ColNames>
@@ -28984,7 +28990,7 @@ address</RefColNames>
       <RefKeyName>element_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="6810" parent="6727" name="transformer_gpslat_fkey">
+    <foreign-key id="6811" parent="6727" name="transformer_gpslat_fkey">
       <ObjectId>5816306</ObjectId>
       <StateNumber>7881521</StateNumber>
       <ColNames>gpslat
@@ -28996,7 +29002,7 @@ gpslong</ColNames>
       <RefColNames>gpslat
 gpslong</RefColNames>
     </foreign-key>
-    <foreign-key id="6811" parent="6727" name="transformer_pbbid_fkey">
+    <foreign-key id="6812" parent="6727" name="transformer_pbbid_fkey">
       <ObjectId>5816311</ObjectId>
       <StateNumber>7881521</StateNumber>
       <ColNames>pbbid</ColNames>
@@ -29006,7 +29012,7 @@ gpslong</RefColNames>
       <RefKeyName>busbar_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="6812" parent="6727" name="transformer_sbbid_fkey">
+    <foreign-key id="6813" parent="6727" name="transformer_sbbid_fkey">
       <ObjectId>5816316</ObjectId>
       <StateNumber>7881521</StateNumber>
       <ColNames>sbbid</ColNames>
@@ -29016,14 +29022,14 @@ gpslong</RefColNames>
       <RefKeyName>busbar_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <check id="6813" parent="6727" name="transformer_check">
+    <check id="6814" parent="6727" name="transformer_check">
       <ObjectId>5816298</ObjectId>
       <StateNumber>7881521</StateNumber>
       <ColNames>pbbid
 sbbid</ColNames>
       <Predicate>(pbbid)::text &lt;&gt; (sbbid)::text</Predicate>
     </check>
-    <trigger id="6814" parent="6727" name="check_pv_busbar_pbbid">
+    <trigger id="6815" parent="6727" name="check_pv_busbar_pbbid">
       <ObjectId>5818109</ObjectId>
       <StateNumber>7889954</StateNumber>
       <Turn>before-row</Turn>
@@ -29031,7 +29037,7 @@ sbbid</ColNames>
       <FireMode>origin</FireMode>
       <CallRoutineId>5818108</CallRoutineId>
     </trigger>
-    <trigger id="6815" parent="6727" name="check_sv_busbar_sbbid">
+    <trigger id="6816" parent="6727" name="check_sv_busbar_sbbid">
       <ObjectId>5818111</ObjectId>
       <StateNumber>7889956</StateNumber>
       <Turn>before-row</Turn>
@@ -29039,15 +29045,30 @@ sbbid</ColNames>
       <FireMode>origin</FireMode>
       <CallRoutineId>5818110</CallRoutineId>
     </trigger>
-    <argument id="6816" parent="6728">
+    <column id="6817" parent="6728" name="name">
+      <Position>1</Position>
+      <DataType>varchar(80)|0s</DataType>
+      <StateNumber>7890242</StateNumber>
+    </column>
+    <column id="6818" parent="6728" name="address">
+      <Position>2</Position>
+      <DataType>varchar(80)|0s</DataType>
+      <StateNumber>7890242</StateNumber>
+    </column>
+    <column id="6819" parent="6728" name="n_substations">
+      <Position>3</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>7890242</StateNumber>
+    </column>
+    <argument id="6820" parent="6729">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>trigger|0s</DataType>
     </argument>
-    <argument id="6817" parent="6729">
+    <argument id="6821" parent="6730">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>trigger|0s</DataType>
     </argument>
-    <argument id="6818" parent="6730">
+    <argument id="6822" parent="6731">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>trigger|0s</DataType>
     </argument>
