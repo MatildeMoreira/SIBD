@@ -10,8 +10,15 @@
  * Matilde, 84137
  * Duarte, 94192
  ***********************************************************************/
+-- DROP TRIGGER removes an existing trigger definition.
 DROP TRIGGER IF EXISTS check_pv_busbar_pbbid ON transformer CASCADE;
 DROP TRIGGER IF EXISTS check_sv_busbar_sbbid ON transformer CASCADE;
+DROP TRIGGER IF EXISTS check_analystSubstation ON analyses CASCADE;
+
+-- DROP FUNCTION removes the definition of an existing function.
+DROP FUNCTION IF EXISTS check_pv_busbar_pbbid_proc() CASCADE;
+DROP FUNCTION IF EXISTS check_sv_busbar_sbbid_proc() CASCADE;
+DROP FUNCTION IF EXISTS check_analystSubstation_proc() CASCADE;
 
  -- (IC1) For every transformer, pv must correspond to the voltage of the busbar identified by pbbid.
 CREATE OR REPLACE FUNCTION check_pv_busbar_pbbid_proc()
@@ -69,10 +76,6 @@ BEGIN
 
 END;
 $BODY$ LANGUAGE plpgsql;
-
-SELECT *
-FROM transformer LEFT OUTER JOIN substation s on s.gpslat = transformer.gpslat and s.gpslong = transformer.gpslong
-ORDER BY id;
 
 CREATE TRIGGER check_analystSubstation
     BEFORE UPDATE OR INSERT ON analyses
