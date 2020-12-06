@@ -471,7 +471,6 @@ INSERT INTO Element (id) VALUES ('T-978');
 INSERT INTO Element (id) VALUES ('T-979');
 
 
-
 -- Table: Line
 INSERT INTO Line (id,impedance) VALUES ('L-114',4005.11);
 INSERT INTO Line (id,impedance) VALUES ('L-141',849.75);
@@ -995,19 +994,6 @@ INSERT INTO Incident (id,instant,description,severity) VALUES ('T-977','2020-11-
 INSERT INTO Incident (id,instant,description,severity) VALUES ('T-977','2020-10-29 16:22:37.000','Expodsed live parts',7);
 INSERT INTO Incident (id,instant,description,severity) VALUES ('T-977','2020-10-09 13:32:37.000','Fall and Burn',3);
 INSERT INTO Incident (id,instant,description,severity) VALUES ('T-978','2020-11-06 07:22:35.000','Electric Shock',8);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 -- Table: Line_Incident
 INSERT INTO Line_Incident (id,instant,point) VALUES ('L-114','2020-10-23 22:03:25.000',6.09);
