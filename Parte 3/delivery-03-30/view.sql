@@ -16,7 +16,11 @@
 DROP VIEW IF EXISTS supervisorsTheirSubst;
 /* View considera somente os que têm substação agregada */
 CREATE VIEW supervisorsTheirSubst(name,address,n_substations) AS SELECT s.name,s.address, count(*) as n_subs FROM supervisor s
-    LEFT JOIN substation as sub on s.name = sub.sname and s.address = sub.saddress GROUP BY (s.name,s.address);
+    LEFT OUTER JOIN substation AS sub ON (s.name = sub.sname and s.address = sub.saddress)
+    WHERE sub.sname IS NOT NULL AND sub.saddress IS NOT NULL
+    GROUP BY (s.name,s.address)
+ORDER BY name,address;
+
 
 
 

@@ -19,7 +19,8 @@ RETURNS TRIGGER AS
 $BODY$
 BEGIN
         IF (NEW.pv) NOT IN (SELECT b.voltage FROM busbar as b WHERE NEW.pbbid = b.id) THEN
-        RAISE EXCEPTION 'The primary voltage of the transformer must correspond to the voltage of the busbar identified by pbbid.';
+        RAISE EXCEPTION 'The primary voltage of the transformer must correspond to the voltage of the busbar identified by pbbid.'
+        USING HINT = 'Please check the primary voltage (pv) of the transformer and also check the primary busbar id (pbbid)';
         END IF;
         RETURN NEW;
 
@@ -38,7 +39,8 @@ RETURNS TRIGGER AS
 $BODY$
 BEGIN
         IF (NEW.sv) NOT IN (SELECT b.voltage FROM busbar as b WHERE NEW.sbbid = b.id) THEN
-        RAISE EXCEPTION 'The secondary voltage of the transformer must correspond to the voltage of the busbar identified by sbbid.';
+        RAISE EXCEPTION 'The secondary voltage of the transformer must correspond to the voltage of the busbar identified by sbbid.'
+        USING HINT = 'Please check the secondary voltage (sv) of the transformer and also check the secondary busbar id (sbbid)';
         END IF;
         RETURN NEW;
 
@@ -51,6 +53,28 @@ CREATE TRIGGER check_sv_busbar_sbbid
     FOR EACH ROW EXECUTE procedure check_sv_busbar_sbbid_proc();
 
 
--- (IC5) For every analysis concerning a transformer, the name, address values cannot coincide with
--- sname, saddress values of the substation where the transformer is located (i.e., gpslat and gpslong
--- have the same values in transformer and substation).
+-- (IC5) For every analysis concerning a transformer, the name, address values cannot coincide with sname, saddress
+-- values of the substation where the transformer is located (i.e., gpslat and gpslong have the same values in
+-- transformer and substation).
+CREATE OR REPLACE FUNCTION check_analystSubstation_proc()
+RETURNS TRIGGER AS
+$BODY$
+BEGIN
+        IF (NEW.id,New.name,NEW.address) IN (SELECT id,sname,saddress FROM transformer LEFT OUTER JOIN substation s on s.gpslat = transformer.gpslat and s.gpslong = transformer.gpslong) THEN
+            RAISE EXCEPTION 'The analyst cannot anlyse incidents regarding Elements of a Substation they supervises.'
+            USING HINT = 'Please check the name and address of the analyst)';
+        END IF;
+
+        RETURN NEW;
+
+END;
+$BODY$ LANGUAGE plpgsql;
+
+SELECT *
+FROM transformer LEFT OUTER JOIN substation s on s.gpslat = transformer.gpslat and s.gpslong = transformer.gpslong
+ORDER BY id;
+
+CREATE TRIGGER check_analystSubstation
+    BEFORE UPDATE OR INSERT ON analyses
+    FOR EACH ROW EXECUTE procedure check_analystSubstation_proc();
+

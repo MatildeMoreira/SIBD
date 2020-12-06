@@ -14,7 +14,9 @@
 -- The INSERT INTO statement is used to insert new records in a specific table.
 
  -- Table: person
-INSERT INTO person (name,address,phone,taxid) VALUES ('Matilde Moreira','N664-7 77, Casa 22, 5936-213, Porto, Vila Real',964356243,2146322191);
+
+/* Inserir pessoa para testar view */
+-- INSERT INTO person (name,address,phone,taxid) VALUES ('Matilde Moreira','N664-7 77, Casa 22, 5936-213, Porto, Vila Real',964356243,2146322191);
 
 
 INSERT INTO person (name,address,phone,taxid) VALUES ('Angelina Jolie','Beco Letícia Nogueira 5, Casa 9, 8877-131, Vila Nova de Santo André, Évora',964356343,196022191);
@@ -139,7 +141,11 @@ INSERT INTO person (name,address,phone,taxid) VALUES ('Teddy Casey','N9 79, Apto
 
 
 -- Table: supervisor
-INSERT INTO supervisor (name,address) VALUES ('Matilde Moreira','N664-7 77, Casa 22, 5936-213, Porto, Vila Real');
+
+/* Inserir Supervisor para testar view */
+-- INSERT INTO supervisor (name,address) VALUES ('Matilde Moreira','N664-7 77, Casa 22, 5936-213, Porto, Vila Real');
+
+
 INSERT INTO supervisor (name,address) VALUES ('Joao Cardoso','Estrada Bruno Teixeira 6, Bloco 79, 2374-517, Barreiro, Portalegre');
 INSERT INTO supervisor (name,address) VALUES ('Angelina Jolie','N206 5745, Casa 6, 2506-490, Setúbal, Viana do Castelo');
 INSERT INTO supervisor (name,address) VALUES ('Angelina Jolie','N88 5560, Bloco 60, 9403-999, Braga, Leiria');
@@ -526,7 +532,7 @@ INSERT INTO busbar (id,voltage) VALUES ('B-998',115.9);
 INSERT INTO busbar (id,voltage) VALUES ('B-999',989.6);
 
 --INSERT INTO element (id) VALUES ('T-980');
---INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-980',371.1,732.8,'B-901','B-647',40.66101,-7.90972);
+--INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-980',205.3,732.8,'B-901','B-647',40.66101,-7.90972);
 
 -- Table: Transformer
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-137',371.1,732.8,'B-163','B-647',40.66101,-7.90972);
