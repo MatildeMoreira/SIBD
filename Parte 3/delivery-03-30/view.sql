@@ -31,7 +31,6 @@ ORDER BY name,address;
 
 
 
-
 /* Dúvida -- View considera os que não têm substação */
 CREATE VIEW supervisorsTheirSubst(name,address,n_substations) AS SELECT s.name,s.address, 0 as n_subs
 FROM supervisor s LEFT OUTER JOIN substation as sub on s.name = sub.sname and s.address = sub.saddress
