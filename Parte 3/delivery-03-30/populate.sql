@@ -850,7 +850,7 @@ INSERT INTO incident (id,instant,description,severity) VALUES ('T-674','2020-10-
 INSERT INTO incident (id,instant,description,severity) VALUES ('T-706','2020-11-08 15:31:59.000','Flammable materials left near exposed electrical wiring in the workplace. Poor wiring','8');
 INSERT INTO incident (id,instant,description,severity) VALUES ('T-715','2020-11-06 07:22:35.000','Old and Poor wiring','5');
 INSERT INTO incident (id,instant,description,severity) VALUES ('T-715','2020-11-04 22:21:49.000','Stactic Electricity','10');
-INSERT INTO incident (id,instant,description,severity) VALUES ('T-739','2020-10-21 09:56:36.000','Expodsed live parts','8');
+INSERT INTO incident (id,instant,description,severity) VALUES ('T-961','2020-10-21 09:56:36.000','Expodsed live parts','8');
 INSERT INTO incident (id,instant,description,severity) VALUES ('T-739','2020-10-23 03:24:27.000','Burns and Fall','3');
 INSERT INTO incident (id,instant,description,severity) VALUES ('T-766','2020-11-06 07:30:46.000','Old and Poor wiring','8');
 INSERT INTO incident (id,instant,description,severity) VALUES ('T-783','2020-10-11 18:02:12.000','Flammable materials left near exposed electrical wiring in the workplace','2');
@@ -1185,7 +1185,8 @@ INSERT INTO analyses (id,instant,name,address,report) VALUES ('T-674','2020-10-0
 INSERT INTO analyses (id,instant,name,address,report) VALUES ('T-706','2020-11-08 15:31:59.000','Angelina Jolie','N206 5745, Casa 6, 2506-490, Setúbal, Viana do Castelo','The problem is not solved yet');
 INSERT INTO analyses (id,instant,name,address,report) VALUES ('T-715','2020-11-06 07:22:35.000','Lionel Richie','N6 56, Lote 66, 2357-907, Guarda, Faro','The problem has not solution');
 INSERT INTO analyses (id,instant,name,address,report) VALUES ('T-715','2020-11-04 22:21:49.000','Duarte Oliveira','N801 8, Lote 95, 6857-903, Quarteira, Beja','The problem has not solution');
-INSERT INTO analyses (id,instant,name,address,report) VALUES ('T-739','2020-10-21 09:56:36.000','Elvia Bowen','N55 67, Lote 04, 5450-652, Vila Franca de Xira, Guarda','The problem is not solved yet');
+
+INSERT INTO analyses (id,instant,name,address,report) VALUES ('T-961','2020-10-21 09:56:36.000','Elvia Bowen','N55 67, Lote 04, 5450-652, Vila Franca de Xira, Guarda','The problem is not solved yet');
 INSERT INTO analyses (id,instant,name,address,report) VALUES ('T-739','2020-10-23 03:24:27.000','Donovan Holland','N691 899, Casa 7, 5110-104, Póvoa de Varzim, Vila Real','The Superviser should check if the incident is solved');
 INSERT INTO analyses (id,instant,name,address,report) VALUES ('T-766','2020-11-06 07:30:46.000','Angelina Jolie','N88 5560, Bloco 60, 9403-999, Braga, Leiria','The Superviser should check if the incident is solved');
 INSERT INTO analyses (id,instant,name,address,report) VALUES ('T-783','2020-10-11 18:02:12.000','Joao Cardoso','N039 01, Casa 8, 5902-878, Penafiel, Setúbal','The problem is not solved yet');
