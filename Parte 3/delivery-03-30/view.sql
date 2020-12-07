@@ -10,13 +10,24 @@
  * Matilde, 84137
  * Duarte, 94192
  ***********************************************************************/
+-- In SQL, a view is a virtual table based on the result-set of an SQL statement.
 
- --View of the supervisors and the number of substations that each one of them supervises,
- --without including supervisors that do not supervise any substation.
+-- When you drop a view, the definition of the view and other information about the view is deleted from the system
+-- catalog. All permissions for the view are also deleted.
+
 DROP VIEW IF EXISTS supervisorsTheirSubst;
+
+-- View of the supervisors and the number of substations that each one of them supervises, without including supervisors
+-- that do not supervise any substation
+
+-- The CREATE VIEW command creates a view.
+
 /* View considera somente os que têm substação agregada */
 CREATE VIEW supervisorsTheirSubst(name,address,n_substations) AS SELECT s.name,s.address, count(*) as n_subs FROM supervisor s
-    LEFT JOIN substation as sub on s.name = sub.sname and s.address = sub.saddress GROUP BY (s.name,s.address);
+    LEFT OUTER JOIN substation AS sub ON (s.name = sub.sname and s.address = sub.saddress)
+    WHERE sub.sname IS NOT NULL AND sub.saddress IS NOT NULL
+    GROUP BY (s.name,s.address)
+ORDER BY name,address;
 
 
 
