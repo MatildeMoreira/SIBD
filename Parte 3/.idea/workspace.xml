@@ -45,22 +45,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1607297551885" />
-    <state width="1024" height="245" key="GridCell.Tab.0.bottom" timestamp="1607300292033">
+    <state width="1445" height="251" key="GridCell.Tab.0.bottom" timestamp="1607304433967">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="245" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607300292033" />
-    <state width="1024" height="245" key="GridCell.Tab.0.center" timestamp="1607300292033">
+    <state width="1445" height="251" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607304433967" />
+    <state width="1445" height="251" key="GridCell.Tab.0.center" timestamp="1607304433967">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="245" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607300292033" />
-    <state width="1024" height="245" key="GridCell.Tab.0.left" timestamp="1607300292032">
+    <state width="1445" height="251" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607304433967" />
+    <state width="1445" height="251" key="GridCell.Tab.0.left" timestamp="1607304433966">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="245" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607300292032" />
-    <state width="1024" height="245" key="GridCell.Tab.0.right" timestamp="1607300292033">
+    <state width="1445" height="251" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607304433966" />
+    <state width="1445" height="251" key="GridCell.Tab.0.right" timestamp="1607304433967">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="245" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607300292033" />
+    <state width="1445" height="251" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607304433967" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1607298402879">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -69,10 +69,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="635" y="255" key="com.intellij.database.actions.DdlActions$CreateObject$1/0.0.1536.824@0.0.1536.824" timestamp="1607219628179" />
-    <state x="623" y="5" width="312" height="813" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1607298323846">
+    <state x="623" y="5" width="312" height="813" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1607302645861">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="623" y="5" width="312" height="813" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.824@0.0.1536.824" timestamp="1607298323846" />
+    <state x="623" y="5" width="312" height="813" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.824@0.0.1536.824" timestamp="1607302645861" />
     <state x="499" y="217" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog" timestamp="1607277023448">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -81,10 +81,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="692" y="358" key="com.intellij.database.run.ParametersPanel.Standalone/0.0.1536.824@0.0.1536.824" timestamp="1607222595491" />
-    <state x="634" y="80" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1607219492927">
+    <state x="634" y="80" width="786" height="594" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1607300583435">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="634" y="80" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1607219492927" />
+    <state x="634" y="80" width="786" height="594" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1607300583435" />
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607299324110">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

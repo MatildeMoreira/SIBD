@@ -22,13 +22,16 @@ FROM transformer) as a
 GROUP BY a.pv
 ORDER BY number DESC;
 
+DROP INDEX IF EXISTS pv_idx;
+DROP INDEX IF EXISTS locality_idx;
 CREATE INDEX pv_idx ON transformer(pv);
-CREATE INDEX locality ON substation(locality);
+CREATE INDEX locality_idx ON substation(locality);
 
-SELECT locality, COUNT(*)
+
+SELECT locality, count(*)
 FROM transformer
 NATURAL JOIN substation
-WHERE pv = 668.7
+WHERE pv=668.7
 GROUP BY locality;
 
 

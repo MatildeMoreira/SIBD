@@ -13957,7 +13957,7 @@ false posixrules
     <database id="3138" parent="1" name="ist425437">
       <ObjectId>3356885</ObjectId>
       <Owner>ciist_oper</Owner>
-      <IntrospectionStateNumber>7899841</IntrospectionStateNumber>
+      <IntrospectionStateNumber>7972830</IntrospectionStateNumber>
       <Current>1</Current>
     </database>
     <database id="3139" parent="1" name="ist425442">
@@ -28242,7 +28242,7 @@ false posixrules
       <Comment>standard public schema</Comment>
       <StateNumber>2148704</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>7899842</IntrospectionStateNumber>
+      <IntrospectionStateNumber>7972831</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="6706" parent="3138" name="btree">
@@ -28855,9 +28855,9 @@ gpslong</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="6793" parent="6725" name="substation__index">
-      <ObjectId>5820263</ObjectId>
-      <StateNumber>7899822</StateNumber>
+    <index id="6793" parent="6725" name="locality_idx">
+      <ObjectId>5821905</ObjectId>
+      <StateNumber>7972829</StateNumber>
       <ColNames>locality</ColNames>
     </index>
     <key id="6794" parent="6725" name="substation_pkey">
@@ -28972,19 +28972,14 @@ address</RefColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="6809" parent="6727" name="pv_idx">
-      <ObjectId>5819984</ObjectId>
-      <StateNumber>7899603</StateNumber>
-      <ColNames>pv</ColNames>
-    </index>
-    <key id="6810" parent="6727" name="transformer_pkey">
+    <key id="6809" parent="6727" name="transformer_pkey">
       <ObjectId>5819184</ObjectId>
       <StateNumber>7895417</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>transformer_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="6811" parent="6727" name="transformer_id_fkey">
+    <foreign-key id="6810" parent="6727" name="transformer_id_fkey">
       <ObjectId>5819185</ObjectId>
       <StateNumber>7895417</StateNumber>
       <ColNames>id</ColNames>
@@ -28994,7 +28989,7 @@ address</RefColNames>
       <RefKeyName>element_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="6812" parent="6727" name="transformer_gpslat_fkey">
+    <foreign-key id="6811" parent="6727" name="transformer_gpslat_fkey">
       <ObjectId>5819190</ObjectId>
       <StateNumber>7895417</StateNumber>
       <ColNames>gpslat
@@ -29006,7 +29001,7 @@ gpslong</ColNames>
       <RefColNames>gpslat
 gpslong</RefColNames>
     </foreign-key>
-    <foreign-key id="6813" parent="6727" name="transformer_pbbid_fkey">
+    <foreign-key id="6812" parent="6727" name="transformer_pbbid_fkey">
       <ObjectId>5819195</ObjectId>
       <StateNumber>7895417</StateNumber>
       <ColNames>pbbid</ColNames>
@@ -29016,7 +29011,7 @@ gpslong</RefColNames>
       <RefKeyName>busbar_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="6814" parent="6727" name="transformer_sbbid_fkey">
+    <foreign-key id="6813" parent="6727" name="transformer_sbbid_fkey">
       <ObjectId>5819200</ObjectId>
       <StateNumber>7895417</StateNumber>
       <ColNames>sbbid</ColNames>
@@ -29026,14 +29021,14 @@ gpslong</RefColNames>
       <RefKeyName>busbar_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <check id="6815" parent="6727" name="transformer_check">
+    <check id="6814" parent="6727" name="transformer_check">
       <ObjectId>5819182</ObjectId>
       <StateNumber>7895417</StateNumber>
       <ColNames>pbbid
 sbbid</ColNames>
       <Predicate>(pbbid)::text &lt;&gt; (sbbid)::text</Predicate>
     </check>
-    <trigger id="6816" parent="6727" name="check_pv_busbar_pbbid">
+    <trigger id="6815" parent="6727" name="check_pv_busbar_pbbid">
       <ObjectId>5819324</ObjectId>
       <StateNumber>7895652</StateNumber>
       <Turn>before-row</Turn>
@@ -29041,7 +29036,7 @@ sbbid</ColNames>
       <FireMode>origin</FireMode>
       <CallRoutineId>5819323</CallRoutineId>
     </trigger>
-    <trigger id="6817" parent="6727" name="check_sv_busbar_sbbid">
+    <trigger id="6816" parent="6727" name="check_sv_busbar_sbbid">
       <ObjectId>5819326</ObjectId>
       <StateNumber>7895654</StateNumber>
       <Turn>before-row</Turn>
@@ -29049,15 +29044,15 @@ sbbid</ColNames>
       <FireMode>origin</FireMode>
       <CallRoutineId>5819325</CallRoutineId>
     </trigger>
-    <argument id="6818" parent="6728">
+    <argument id="6817" parent="6728">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>trigger|0s</DataType>
     </argument>
-    <argument id="6819" parent="6729">
+    <argument id="6818" parent="6729">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>trigger|0s</DataType>
     </argument>
-    <argument id="6820" parent="6730">
+    <argument id="6819" parent="6730">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>trigger|0s</DataType>
     </argument>
