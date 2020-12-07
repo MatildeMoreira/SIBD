@@ -24,6 +24,7 @@ ORDER BY number DESC;
 
 DROP INDEX IF EXISTS pv_idx;
 DROP INDEX IF EXISTS locality_idx;
+
 CREATE INDEX pv_idx ON transformer(pv);
 CREATE INDEX locality_idx ON substation(locality);
 
