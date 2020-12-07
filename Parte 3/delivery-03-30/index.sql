@@ -16,12 +16,19 @@
 
  -- Return the number of transformers with a given primary voltage by locality
 
+SELECT a.pv,COUNT(*) as number
+FROM (SELECT *
+FROM transformer) as a
+GROUP BY a.pv
+ORDER BY number DESC;
 
+CREATE INDEX pv_idx ON transformer(pv);
+CREATE INDEX locality ON substation(locality);
 
 SELECT locality, COUNT(*)
 FROM transformer
 NATURAL JOIN substation
-WHERE pv = <some value>
+WHERE pv = 668.7
 GROUP BY locality;
 
 
