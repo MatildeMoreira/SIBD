@@ -548,12 +548,15 @@ INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-371',85
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-388',802.7,961.2,'B-426','B-300',37.01874,-7.92716);
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-404',333.1,355.2,'B-576','B-812',39.23333,-8.68333);
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-424',961.2,483.2,'B-300','B-765',39.82219,-7.49087);
+
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-429',668.7,104.6,'B-128','B-712',38.71671,-9.13333);
+
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-432',471.1,802.7,'B-940','B-426',38.56667,-7.90003);
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-463',668.7,148.7,'B-128','B-640',38.75380,-9.23081);
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-531',472.8,355.2,'B-553','B-812',41.55032,-8.42006);
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-562',150.4,732.8,'B-864','B-647',37.10202,-8.67422);
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-649',104.6,251.7,'B-712','B-233',41.14962,-8.61099);
+
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-650',668.7,471.6,'B-128','B-369',39.82220,-7.49087);
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-674',327.9,891.8,'B-275','B-789',41.14963,-8.61099);
 INSERT INTO transformer (id,pv,sv,pbbid,sbbid,gpslat,gpslong) VALUES ('T-706',241.6,768.2,'B-807','B-190',37.10205,-8.67422);
