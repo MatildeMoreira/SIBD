@@ -16,6 +16,7 @@ DROP TABLE IF EXISTS d_reporter;
 DROP TABLE IF EXISTS d_time;
 DROP TABLE IF EXISTS d_location;
 DROP TABLE IF EXISTS d_element;
+DROP TYPE IF EXISTS type_element;
 
  CREATE TABLE d_reporter(
     id_reporter SERIAL,
@@ -43,14 +44,12 @@ DROP TABLE IF EXISTS d_element;
     PRIMARY KEY(id_location)
  );
 
- CREATE TYPE type_element AS ENUM ('BusBar','Line','Transformer');
  CREATE TABLE d_element(
      id_element SERIAL,
      element_id VARCHAR(10) NOT NULL,
-     element_type type_element NOT NULL,
+     element_type CHAR NOT NULL,
      PRIMARY KEY (id_element)
  );
-
 
  CREATE TABLE f_incident(
     id_reporter SERIAL,
@@ -65,22 +64,54 @@ DROP TABLE IF EXISTS d_element;
     severity VARCHAR(30)
  );
 
-
 INSERT INTO d_reporter (name,address)
     SELECT *
     FROM analyst;
 
-INSERT INTO d_time(day,week_day,week,month,trimester,year)
 
+CREATE OR REPLACE FUNCTION load_d_time()
+    RETURNS VOID AS
+$$
+DECLARE time_val TIMESTAMP;
+BEGIN
+    time_val := '2020-01-01 00:00:00';
+    WHILE time_val < '2020-12-31 00:00:00' LOOP
+        INSERT INTO d_time(
+            id_time,
+            day,
+            week_day,
+            week,
+            month,
+            trimester,
+            year
+        ) VALUES (
+              EXTRACT(YEAR FROM time_val) * 10000
+              +   EXTRACT(MONTH FROM time_val)*100
+              +   EXTRACT(DAY FROM time_val),
+              EXTRACT(DAY FROM time_val),
+              EXTRACT(DOW FROM time_val),
+              EXTRACT(WEEK FROM time_val),
+              EXTRACT(MONTH FROM time_val),
+              CASE
+                    WHEN EXTRACT(MONTH FROM time_val) BETWEEN 0 AND 3 THEN 1
+                    WHEN EXTRACT(MONTH FROM time_val) BETWEEN 4 AND 6 THEN 2
+                    WHEN EXTRACT(MONTH FROM time_val) BETWEEN 7 AND 9 THEN 3
+                    ELSE 4
+              END,
+              EXTRACT(YEAR FROM time_val)
+        );
+        time_val := time_val + INTERVAL '1 DAY';
+    END LOOP;
+END;
+$$ LANGUAGE plpgsql;
 
+select load_d_time();
 
- CREATE TABLE d_time(
-    id_time SERIAL,
-    day INT NOT NULL,
-    week_day VARCHAR(20) NOT NULL,
-    week INT NOT NULL,
-    month INT NOT NULL,
-    trimester INT NOT NULL,
-    year INT NOT NULL,
-    PRIMARY KEY(id_time)
- );
+INSERT INTO d_location(latitude, longitude, locality)
+    SELECT gpslat, gpslong, locality
+    FROM substation;
+
+INSERT INTO d_element(element_id, element_type)
+    SELECT id, SUBSTRING(id, 0,2) AS element_type FROM element;
+
+select * from d_element;
