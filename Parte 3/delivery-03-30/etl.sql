@@ -63,26 +63,19 @@ INSERT INTO d_location(latitude, longitude, locality)
 INSERT INTO d_element(element_id, element_type)
     SELECT id, SUBSTRING(id, 0,2) AS element_type FROM element;
 
-
 INSERT INTO f_incident
-SELECT id_reporter, id_time, id_location, id_element, severity
-FROM (analyses
-NATURAL JOIN incident
-NATURAL JOIN substation
-NATURAL JOIN element) t
-NATURAL JOIN d_reporter d1
-NATURAL JOIN d_time d2
-NATURAL JOIN d_location d3
-NATURAL JOIN d_element d4
-WHERE d1.name = t.name
-    AND d1.address = t.address
-    AND d2.day = EXTRACT(DAY FROM t.instant)
-    AND d2.month = EXTRACT(MONTH FROM t.instant)
-    AND d2.year = EXTRACT(YEAR FROM t.instant)
-    AND d3.latitude = t.gpslat
-    AND d3.longitude = t.gpslong
-    AND d4.element_id = t.id
-    AND severity = t.severity;
-
+       SELECT id_reporter, id_time, id_location, id_element, severity
+        FROM (analyses NATURAL JOIN incident NATURAL JOIN substation NATURAL JOIN element) t
+        LEFT OUTER JOIN d_reporter dr ON
+            dr.address = t.address AND dr.name = t.name
+        LEFT OUTER JOIN d_time dt ON
+            dt.year = EXTRACT(YEAR FROM t.instant)
+            AND dt.month = EXTRACT(MONTH FROM t.instant)
+            AND dt.day = EXTRACT(DAY FROM t.instant)
+        LEFT OUTER JOIN d_location dl
+            ON dl.latitude = t.gpslat AND dl.longitude = t.gpslong AND dl.locality = t.locality
+        LEFT OUTER JOIN d_element de
+            ON de.element_id = t.id
+        WHERE severity = t.severity;
 
 SELECT * from f_incident;
