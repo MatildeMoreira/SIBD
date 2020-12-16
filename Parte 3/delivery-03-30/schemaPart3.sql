@@ -96,6 +96,7 @@ CREATE TABLE transformer(
     CHECK(pbbid<>sbbid)
 );
 
+
 -- Specialization, Entity : line(id,impedance,pbbid,sbbid)
 CREATE TABLE line(
     id VARCHAR(10),
