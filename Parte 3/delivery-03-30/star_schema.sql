@@ -16,6 +16,7 @@ DROP TABLE IF EXISTS d_reporter;
 DROP TABLE IF EXISTS d_time;
 DROP TABLE IF EXISTS d_location;
 DROP TABLE IF EXISTS d_element;
+DROP TYPE IF EXISTS type_element;
 
  CREATE TABLE d_reporter(
     id_reporter SERIAL,
@@ -43,14 +44,12 @@ DROP TABLE IF EXISTS d_element;
     PRIMARY KEY(id_location)
  );
 
- CREATE TYPE type_element AS ENUM ('BusBar','Line','Transformer');
  CREATE TABLE d_element(
      id_element SERIAL,
      element_id VARCHAR(10) NOT NULL,
-     element_type type_element NOT NULL,
+     element_type CHAR NOT NULL,
      PRIMARY KEY (id_element)
  );
-
 
  CREATE TABLE f_incident(
     id_reporter SERIAL,
@@ -66,21 +65,4 @@ DROP TABLE IF EXISTS d_element;
  );
 
 
-INSERT INTO d_reporter (name,address)
-    SELECT *
-    FROM analyst;
 
-INSERT INTO d_time(day,week_day,week,month,trimester,year)
-
-
-
- CREATE TABLE d_time(
-    id_time SERIAL,
-    day INT NOT NULL,
-    week_day VARCHAR(20) NOT NULL,
-    week INT NOT NULL,
-    month INT NOT NULL,
-    trimester INT NOT NULL,
-    year INT NOT NULL,
-    PRIMARY KEY(id_time)
- );
