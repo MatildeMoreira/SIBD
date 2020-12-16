@@ -3,5 +3,6 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/IC5.sql" dialect="OracleSqlPlus" />
     <file url="file://$PROJECT_DIR$/delivery-03-30/RI.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/teste2.sql" dialect="GenericSQL" />
   </component>
 </project>

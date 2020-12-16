@@ -33,7 +33,9 @@ try:
 			print('<td>{}</td>'.format(value))
 		print('</tr>')
 	print('</table>')
-	print('<a href="supervisor.cgi">Change Supervisor Name</a></td>')
+	print('<a href="new_supervisor.cgi">Change Supervisor Name</a></td>')
+	print('<a href="main_menu.cgi">Back to Main Page</a><br>')
+
 
 	#Closing connection
 	cursor.close()

@@ -6,7 +6,7 @@ import login
 print('Content-type:text/html\n\n')
 print('<html>')
 print('<head>')
-print('<title>Bus bar</title>')
+print('<title>Substation</title>')
 print('</head>')
 print('<body>')
 
@@ -23,21 +23,9 @@ try:
 	result = cursor.fetchall()
 	num = len(result)
 
-    # The form will send the info needed for the SQL query
-    print('<form action="insert_busbar.cgi" method="post">')
-
-    print('<p><input type="hidden" name="busbar_id" value="{}"/></p>'.format(busbar_id))
-    print('<p>ID: <input type="text" name="busbar_id"/></p>')
-
-    print('<p><input type="hidden" name="busbar_voltage" value="{}"/></p>'.format(busbar_voltage))
-    print('<p>Voltage: <input type="text" name="busbar_voltage"/></p>')
-    
-    print('<p><input type="submit" value="Insert"/></p>')
-    print('</form>')
-
 	# Displaying result
 	print('<table border="5">')
-	print('<tr><td>account_number</td><td>branch_name</td><td>balance</td></tr>')
+	print('<tr><td>ID</td><td>voltage</td></tr>')
 	for row in result:
 		print('<tr>')
 		for value in row:
@@ -45,6 +33,13 @@ try:
 			print('<td>{}</td>'.format(value))
 		print('</tr>')
 	print('</table>')
+	print('<form action="insert_busbar.cgi" method="post">')
+	print('<h2> Insert New Bus bar </h2>')
+	print('<p> ID: <input type="text" name="id"/></p>')
+	print('<p>Voltage: <input type="text" name="voltage"/></p>')
+	print('<p><input type="submit" value="Submit"/></p>')
+	print('<a href="main_menu.cgi">Back to Main Page</a><br>')
+
 
 	#Closing connection
 	cursor.close()
