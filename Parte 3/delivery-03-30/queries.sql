@@ -10,6 +10,23 @@
  * Matilde, 84137
  * Duarte, 94192
  ***********************************************************************/
+/*
+    First, we will create the view of the supervisors and the number of substations that each one of them supervises,
+    without including supervisors that do not supervise any substation.
+    1. In SQL, a view is a virtual table based on the result-set of an SQL statement.
+    2. When you drop a view, the definition of the view and other information about the view is deleted from the system
+       catalog. All permissions for the view are also deleted.
+    3. The CREATE VIEW command creates a view.
+ */
+DROP VIEW IF EXISTS supervisorsTheirSubst;
+--/* View considera somente os que têm substação agregada */
+CREATE VIEW supervisorsTheirSubst(name,address,n_substations) AS SELECT s.name,s.address, count(*) as n_subs FROM supervisor s
+    LEFT OUTER JOIN substation AS sub ON (s.name = sub.sname and s.address = sub.saddress)
+    WHERE sub.sname IS NOT NULL AND sub.saddress IS NOT NULL
+    GROUP BY (s.name,s.address)
+ORDER BY name,address;
+
+
 -- Present the most succinct SQL query for each of the following questions. If appropriate, you can use the view created
 -- previously.
 
