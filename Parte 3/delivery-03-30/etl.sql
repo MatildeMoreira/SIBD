@@ -64,6 +64,7 @@ INSERT INTO d_element(element_id, element_type)
     SELECT id, SUBSTRING(id, 0,2) AS element_type FROM element;
 
 INSERT INTO f_incident
+<<<<<<< Updated upstream
        SELECT id_reporter, id_time, id_location, id_element, severity
         FROM (analyses NATURAL JOIN incident NATURAL JOIN substation NATURAL JOIN element) t
         LEFT OUTER JOIN d_reporter dr ON
@@ -77,5 +78,36 @@ INSERT INTO f_incident
         LEFT OUTER JOIN d_element de
             ON de.element_id = t.id
         WHERE severity = t.severity;
+=======
 
+INSERT INTO f_incident (id_reporter, id_time, id_location, id_element, severity)
+SELECT (SELECT id_reporter
+           FROM d_reporter
+           WHERE id_r = aluga.nif) id_reporter,
+       (SELECT localizacao_id
+        FROM (SELECT localizacao_id, edificio as morada, posto as codigo
+              FROM localizacao_dimension
+              WHERE posto IS NOT NULL
+>>>>>>> Stashed changes
+
+              UNION ALL
+
+              SELECT localizacao_id, edificio as morada, espaco as codigo
+              FROM localizacao_dimension
+              WHERE posto IS NULL) result
+        WHERE morada = aluga.morada and codigo = aluga.codigo) location_id,
+       (SELECT data_id
+        FROM data_dimension
+        WHERE dia = DAYOFMONTH(data) AND mes = MONTH(data) AND ano = YEAR(data)) data_id,
+       (SELECT tempo_id
+        FROM tempo_dimension, paga
+        WHERE hora = HOUR(data) AND minuto = MINUTE(data) AND paga.numero = aluga.numero) tempo_id,
+       tarifa * (data_fim - data_inicio + 1) montante,
+       data_fim - data_inicio + 1 duracao
+FROM aluga
+NATURAL JOIN oferta
+LEFT JOIN paga
+ON (paga.numero = aluga.numero)
+WHERE (YEAR(data_inicio) BETWEEN 2016 AND 2017) AND
+      (YEAR(data_fim) BETWEEN 2016 AND 2017);
 SELECT * from f_incident;
