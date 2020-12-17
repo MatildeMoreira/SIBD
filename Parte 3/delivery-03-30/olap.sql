@@ -12,6 +12,8 @@
  * Duarte, 94192
  ***********************************************************************/
 
+
+/* Total number of anomalies reported by severity, locality and day of the week*/
 SELECT severity, NULL AS week_day, NULL AS locality, COUNT(severity) AS contagem
 FROM f_incident
 GROUP BY severity

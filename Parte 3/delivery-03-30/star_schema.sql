@@ -11,13 +11,15 @@
  * Matilde, 84137
  * Duarte, 94192
  ***********************************************************************/
+
+/*Drop every dimension table and then the fact table*/
 DROP TABLE IF EXISTS f_incident;
 DROP TABLE IF EXISTS d_reporter;
 DROP TABLE IF EXISTS d_time;
 DROP TABLE IF EXISTS d_location;
 DROP TABLE IF EXISTS d_element;
-DROP TYPE IF EXISTS type_element;
 
+/*Create the reporter dimension table using as primary key the id of reporter*/
  CREATE TABLE d_reporter(
     id_reporter SERIAL,
     name VARCHAR(80) NOT NULL,
@@ -25,6 +27,7 @@ DROP TYPE IF EXISTS type_element;
     PRIMARY KEY(id_reporter)
  );
 
+/*Create the time dimension table using as primary the id time*/
  CREATE TABLE d_time(
     id_time SERIAL,
     day INT NOT NULL,
@@ -36,6 +39,7 @@ DROP TYPE IF EXISTS type_element;
     PRIMARY KEY(id_time)
  );
 
+/*Create the location dimension table using as primary key the id of the location*/
  CREATE TABLE d_location(
     id_location SERIAL,
     latitude NUMERIC(9,6) NOT NULL,
@@ -44,6 +48,7 @@ DROP TYPE IF EXISTS type_element;
     PRIMARY KEY(id_location)
  );
 
+/*Create the element dimension table using as primary key the id of the element*/
  CREATE TABLE d_element(
      id_element SERIAL,
      element_id VARCHAR(10) NOT NULL,
@@ -51,6 +56,7 @@ DROP TYPE IF EXISTS type_element;
      PRIMARY KEY (id_element)
  );
 
+/*Create the incident fact table using as primary key the set of each dimension table primary key*/
  CREATE TABLE f_incident(
     id_reporter SERIAL,
     id_time SERIAL,

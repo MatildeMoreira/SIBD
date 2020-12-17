@@ -12,11 +12,12 @@
  * Duarte, 94192
  ***********************************************************************/
 
-
+/*Inserting into the reporter dimension table which gets all values of the analyst table*/
 INSERT INTO d_reporter (name,address)
     SELECT *
     FROM analyst;
 
+/* Inserting into the time dimension table which create 365 time id's corresponding to every day of the year */
 CREATE OR REPLACE FUNCTION load_d_time()
     RETURNS VOID AS
 $$
@@ -53,15 +54,22 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+/* Call the function that creates de time id's */
 SELECT load_d_time();
 
+/* Inserting into the location dimension table which gets the coordinates and locality of substation table */
 INSERT INTO d_location(latitude, longitude, locality)
     SELECT gpslat, gpslong, locality
     FROM substation;
 
+/*Inserting into the element dimension table which gets the id of element table
+  The element type corresponds to the first letter of the id of the element*/
 INSERT INTO d_element(element_id, element_type)
     SELECT id, SUBSTRING(id, 0,2) AS element_type FROM element;
 
+/*Inserting into the incident fact table*/
+/*The operation table is: 'analyses NATURAL JOIN incident NATURAL JOIN transformer'
+to get the info of each surrogate key and the severity*/
 INSERT INTO f_incident
        SELECT id_reporter, id_time, id_location, id_element, severity
        FROM (analyses NATURAL JOIN incident NATURAL JOIN transformer) t
