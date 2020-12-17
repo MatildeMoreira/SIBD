@@ -12,7 +12,6 @@
  * Duarte, 94192
  ***********************************************************************/
 
-<<<<<<< Updated upstream
 SELECT severity, NULL AS week_day, NULL AS locality, COUNT(severity) AS contagem
 FROM f_incident
 GROUP BY severity
@@ -30,5 +29,4 @@ SELECT NULL, NULL, dl.locality, COUNT(dl.locality)
 FROM f_incident f, d_location dl
 WHERE dl.id_location=f.id_location
 GROUP BY dl.locality;
-=======
->>>>>>> Stashed changes
+
