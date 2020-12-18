@@ -85,3 +85,4 @@ INSERT INTO f_incident
            ON de.element_id = t.id
        WHERE severity = t.severity;
 
+select * from f_incident;
