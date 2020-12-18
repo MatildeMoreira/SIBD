@@ -1,0 +1,28 @@
+.reveal-if-active {
+  opacity: 0;
+  max-height: 0;
+  overflow: visible;
+  font-size: 24px;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+  transition: 0.5s;
+}
+.reveal-if-active label {
+  display: block;
+  margin: 0 0 3px 0;
+}
+.reveal-if-active input[type=text] {
+  width: 100%;
+}
+input[type="radio"]:checked ~ .reveal-if-active, input[type="checkbox"]:checked ~ .reveal-if-active {
+  opacity: 1;
+  max-height: 100px;
+  padding: 20px 20px;
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+  overflow: visible;
+}
+
+* {
+  box-sizing: border-box;
+}

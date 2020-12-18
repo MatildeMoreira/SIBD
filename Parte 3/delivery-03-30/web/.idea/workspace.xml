@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3fe3eafd-c9ff-4fbf-aa63-08859fb7fc41" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1llSzIJfsTrdCspDUnDkfwMDSYJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DBE.Init.BalloonShown" value="true" />
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="WindowStateProjectService">
+    <state x="91" y="94" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608249952162">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="91" y="94" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1608249952162" />
+    <state x="504" y="234" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608268761972">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="504" y="234" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1608268761972" />
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1608242012728">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1608242012728" />
+    <state width="501" height="230" key="GridCell.Tab.0.bottom" timestamp="1608257219361">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="501" height="230" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1608257219361" />
+    <state width="501" height="230" key="GridCell.Tab.0.center" timestamp="1608257219361">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="501" height="230" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1608257219361" />
+    <state width="501" height="230" key="GridCell.Tab.0.left" timestamp="1608257219361">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="501" height="230" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1608257219361" />
+    <state width="501" height="230" key="GridCell.Tab.0.right" timestamp="1608257219361">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="501" height="230" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1608257219361" />
+    <state x="635" y="109" width="312" height="645" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1608256785844">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="635" y="109" width="312" height="645" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.864@0.0.1536.864" timestamp="1608256785844" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1608263338206">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1608263338206" />
+    <state x="491" y="344" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1608277952676">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="491" y="344" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1536.864@0.0.1536.864" timestamp="1608277952676" />
+  </component>
+</project>
