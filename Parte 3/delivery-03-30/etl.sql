@@ -12,12 +12,12 @@
  * Duarte, 94192
  ***********************************************************************/
 
-
- INSERT INTO d_reporter (name,address)
+/*Inserting into the reporter dimension table which gets all values of the analyst table*/
+INSERT INTO d_reporter (name,address)
     SELECT *
     FROM analyst;
 
-
+/* Inserting into the time dimension table which create 365 time id's corresponding to every day of the year */
 CREATE OR REPLACE FUNCTION load_d_time()
     RETURNS VOID AS
 $$
@@ -54,28 +54,35 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+/* Call the function that creates de time id's */
 SELECT load_d_time();
 
+/* Inserting into the location dimension table which gets the coordinates and locality of substation table */
 INSERT INTO d_location(latitude, longitude, locality)
     SELECT gpslat, gpslong, locality
     FROM substation;
 
+/*Inserting into the element dimension table which gets the id of element table
+  The element type corresponds to the first letter of the id of the element*/
 INSERT INTO d_element(element_id, element_type)
     SELECT id, SUBSTRING(id, 0,2) AS element_type FROM element;
 
+/*Inserting into the incident fact table*/
+/*The operation table is: 'analyses NATURAL JOIN incident NATURAL JOIN transformer'
+to get the info of each surrogate key and the severity*/
 INSERT INTO f_incident
        SELECT id_reporter, id_time, id_location, id_element, severity
-        FROM (analyses NATURAL JOIN incident NATURAL JOIN substation NATURAL JOIN element) t
-        LEFT OUTER JOIN d_reporter dr ON
-            dr.address = t.address AND dr.name = t.name
-        LEFT OUTER JOIN d_time dt ON
-            dt.year = EXTRACT(YEAR FROM t.instant)
-            AND dt.month = EXTRACT(MONTH FROM t.instant)
-            AND dt.day = EXTRACT(DAY FROM t.instant)
-        LEFT OUTER JOIN d_location dl
-            ON dl.latitude = t.gpslat AND dl.longitude = t.gpslong AND dl.locality = t.locality
-        LEFT OUTER JOIN d_element de
-            ON de.element_id = t.id
-        WHERE severity = t.severity;
+       FROM (analyses NATURAL JOIN incident NATURAL JOIN transformer) t
+       LEFT OUTER JOIN d_reporter dr ON
+           dr.address = t.address AND dr.name = t.name
+       LEFT OUTER JOIN d_time dt ON
+           dt.year = EXTRACT(YEAR FROM t.instant)
+           AND dt.month = EXTRACT(MONTH FROM t.instant)
+           AND dt.day = EXTRACT(DAY FROM t.instant)
+       LEFT OUTER JOIN d_location dl
+           ON (dl.latitude, dl.longitude) = (t.gpslat, t.gpslong)
+       LEFT OUTER JOIN d_element de
+           ON de.element_id = t.id
+       WHERE severity = t.severity;
 
-SELECT * from f_incident;
+select * from f_incident;
