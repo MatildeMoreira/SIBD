@@ -8,12 +8,10 @@ form = cgi.FieldStorage()
 
 
 #getvalue uses the names from the form in previous page
-print(form["sub"])
-#raw = form.getValue('sub')
-#info = explode(":",$raw,2)
-
-#gpslat = form.getvalue('instant')
-#gpslong = form.getvalue('id')
+gpslat = form.getvalue('gpslat')
+gpslong = form.getvalue('gpslong')
+name_atual=form.getvalue('sname')
+address_atual=form.getvalue('saddress')
 
 
 print('Content-type:text/html\n\n')
@@ -131,11 +129,42 @@ print('</style>')
 print('<body style="background-color: #C0C0C0;">')
 
 connection = None
+
 try:
     # Creating connection
     connection = psycopg2.connect(login.credentials)
     cursor = connection.cursor()
     print('<a href="index.cgi" class="button button2">Back to Main Page</a><br>')
+    print('<h1>Changing the Supervisor associated to (Latitude,Longitude): ({},{})</h1>'.format(gpslat,gpslong))
+
+    print('<h2>Matching results</h2>')
+    print('<h3> Please, select a supervisor to change</h3>')
+    sql = 'SELECT * FROM supervisor;'
+
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    num = len(result)
+    # Displaying result
+    print('<form action="updateSupervisor.cgi" method="post">')
+    print('<table border="5">')
+    print('<tr><td></td><td>Name</td><td>Address</td></tr>')
+    i=0
+    for row in result:
+	    print('<tr>')
+	    name_future = row[0]
+	    address_future = row[1]
+	    print('<td><input type="radio" name="substation" value = "{}" required></td>'.format(i))
+	    print('<input type="hidden" name="name_future" value = "{}">'.format(row[0]))
+	    print('<input type="hidden" name="address_future" value = "{}">'.format(row[1]))
+	    print('<td>{}</td>'.format(name_future))
+	    print('<td>{}</td>'.format(address_future))
+	    i=i+1
+	    print('</tr>')
+    print('</table>')
+    print('<input type="hidden" name="gpslat2" value = "{}">'.format(gpslat))
+    print('<input type="hidden" name="gpslong2" value = "{}">'.format(gpslong))
+    print('<button class="button button1" type="submit">Change Supervisor</button>')
+    print('</form>')
 
 
     # Closing connection

@@ -132,10 +132,8 @@ try:
     connection = psycopg2.connect(login.credentials)
     cursor = connection.cursor()
     print('<a href="index.cgi" class="button button2">Back to Main Page</a><br>')
+
     # Making query
-
-
-
     sql = """ DELETE FROM analyses WHERE name = %s AND address = %s; """
     data = (name,address)
     cursor.execute(sql, data)

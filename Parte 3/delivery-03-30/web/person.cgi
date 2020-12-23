@@ -117,7 +117,7 @@ print('}')
 
 print('</style>')
 
-print('<body style="background-color: #C0C0C0;">>')
+print('<body style="background-color: #C0C0C0;">')
 
 connection = None
 try:
@@ -135,7 +135,6 @@ try:
 
 	cursor.execute(sql)
 	result = cursor.fetchall()
-	num = len(result)
 
 	# Displaying result
 	print('<table border="5">')
@@ -148,7 +147,6 @@ try:
 		print('<td>{}</td>'.format(address_person))
 		print('<td>{}</td>'.format(row[2]))
 		print('<td>{}</td>'.format(row[3]))
-		print('<td><a href="deletePerson.cgi?name={}&address={}">Delete</a></td>'.format(name_person,address_person))
 		print('</tr>')
 	print('</table>')
 

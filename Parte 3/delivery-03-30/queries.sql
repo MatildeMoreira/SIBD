@@ -31,9 +31,10 @@ ORDER BY name,address;
 -- previously.
 
 -- 1. Who are the analysts that have analyzed every incident of element ‘B-789’?
-SELECT name
+SELECT count(name)
 FROM analyses
-WHERE id = 'B-789';
+WHERE id = 'B-789'
+GROUP BY (name,address);
 
 
 -- 2. Who are the supervisors that do not supervise substations south of Rio Maior (Portugal) (Rio Maior

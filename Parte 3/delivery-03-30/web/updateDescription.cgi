@@ -140,6 +140,9 @@ try:
     data = (description,id,instant)
     cursor.execute(sql, data)
     connection.commit()
+    print('<b><h1 style="text-align:center;",class="a">Description changed successfully!</h1><b>')
+    print('<center><img src="updated.png" style="width:500px;"></center>')
+
 
     # Closing connection
     cursor.close()

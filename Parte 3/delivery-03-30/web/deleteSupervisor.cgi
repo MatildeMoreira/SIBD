@@ -134,12 +134,6 @@ try:
     print('<a href="index.cgi" class="button button2">Back to Main Page</a><br>')
     # Making query
 
-
-    sql = """ DELETE FROM transformer WHERE gpslat = %s AND gpslong = %s; """
-    data = (gpslat,gpslong)
-    cursor.execute(sql, data)
-    connection.commit()
-
     sql = """ DELETE FROM substation WHERE sname = %s AND saddress = %s; """
     data = (name,address)
     cursor.execute(sql, data)

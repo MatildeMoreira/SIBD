@@ -117,7 +117,7 @@ print('}')
 
 print('</style>')
 
-print('<body style="background-color: #C0C0C0;">>')
+print('<body style="background-color: #C0C0C0;">')
 
 connection = None
 try:
@@ -142,7 +142,6 @@ try:
 
 	cursor.execute(sql)
 	result = cursor.fetchall()
-	num = len(result)
 
 	# Displaying result
 	print('<table border="5">')

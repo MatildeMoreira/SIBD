@@ -8,8 +8,13 @@ form = cgi.FieldStorage()
 
 
 #getvalue uses the names from the form in previous page
-name = form.getvalue('name')
-address = form.getvalue('address')
+name_future = form.getvalue('name_future')
+address_future = form.getvalue('address_future')
+gpslat = form.getvalue('gpslat2')
+gpslong = form.getvalue('gpslong2')
+i=form.getvalue('substation')
+i=int(i)
+
 
 print('Content-type:text/html\n\n')
 print('<html>')
@@ -123,7 +128,6 @@ print('padding: 5px;')
 print('}')
 
 print('</style>')
-
 print('<body style="background-color: #C0C0C0;">')
 
 connection = None
@@ -132,48 +136,21 @@ try:
     connection = psycopg2.connect(login.credentials)
     cursor = connection.cursor()
     print('<a href="index.cgi" class="button button2">Back to Main Page</a><br>')
-    # Making query
 
-
-    sql = """ DELETE FROM transformer WHERE gpslat = %s AND gpslong = %s; """
-    data = (gpslat,gpslong)
-    cursor.execute(sql, data)
+    #Creating Query
+    sql = 'UPDATE substation SET sname = %s,saddress = %s WHERE gpslat ={} AND gpslong={}'.format(gpslat,gpslong)
+    data=(name_future[i],address_future[i])
+    cursor.execute(sql,data)
     connection.commit()
-
-    sql = """ DELETE FROM substation WHERE sname = %s AND saddress = %s; """
-    data = (name,address)
-    cursor.execute(sql, data)
-    connection.commit()
-
-    sql = """ DELETE FROM supervisor WHERE name = %s AND address = %s; """
-    data = (name,address)
-    cursor.execute(sql, data)
-    connection.commit()
-
-    sql = """ DELETE FROM analyses WHERE name = %s AND address = %s; """
-    data = (name,address)
-    cursor.execute(sql, data)
-    connection.commit()
-
-    sql = """ DELETE FROM analyst WHERE name = %s AND address = %s; """
-    data = (name,address)
-    cursor.execute(sql, data)
-    connection.commit()
-
-    sql = """ DELETE FROM person WHERE name = %s AND address = %s; """
-    data = (name,address)
-    cursor.execute(sql, data)
-    connection.commit()
-
-
-    print('<b><h1 style="text-align:center;",class="a">Person removed successfully!</h1><b>')
-    print('<center><img src="elimination.png" style="width:500px;"></center>')
+    print('<b><h1 style="text-align:center;",class="a">Supervisor assigned to a substation changed successfully!</h1><b>')
+    print('<center><img src="updated.png" style="width:500px;"></center>')
 
     # Closing connection
     cursor.close()
 except Exception as e:
-	print('<h1>An error occurred.</h1>')
-	print('<p>{}</p>'.format(e))
+    print('<b><h1 style="text-align:center;",class="a">An Error Ocurred:</h1><b>')
+    print('<bB<h1>An error occurred.</h1>')
+    print('<p>{}</p>'.format(e))
 finally:
 	if connection is not None:
 		connection.close()

@@ -80,7 +80,7 @@ print('}')
 print('</style>')
 
 
-print('<body style="background-color: #3c3d41;">>')
+print('<body style="background-color: #3c3d41;">')
 
 connection = None
 try:
@@ -91,16 +91,6 @@ try:
 	print('<center><img src="power_grid.png" style="width:500px;"></center>')
 
 
-	# Making query
-	#print('<a href="transformer.cgi" class="btnStack">Transformer</a><br>')
-    #print('<a href="busbar.cgi" class="btnStack">Bus Bar</a><br>')
-    #print('<a href="element.cgi" class="btnStack">Element</a><br>')
-    #print('<a href="line.cgi" class="btnStack">Line</a><br>')
-    #print('<a href="line_incident.cgi" class="btnStack">Line Incident</a><br>')
-	#print('<a href="supervisor.cgi" class="btnStack">Supervisor</a><br>')
-	#print('<a href="analyst.cgi" class="btnStack">Analyst</a><br>')
-    #print('<a href="analyses.cgi" class="btnStack">Analyses</a><br>')
-
 	print('<h1 style="font-family:Times New Roman" class="a"> <center> Welcome to the Power Grid - Group 30 </center></h1><br>')
 
 
@@ -108,6 +98,7 @@ try:
 	print('<a href="substation.cgi" class="button button2">Substation</a><br>')
 	print('<a href="element.cgi" class="button button3">Element</a><br>')
 	print('<a href="incident.cgi" class="button button4">Incident</a><br>')
+
 	#Closing connection
 	cursor.close()
 

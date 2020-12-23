@@ -119,7 +119,7 @@ print('}')
 
 print('</style>')
 
-print('<body style="background-color: #C0C0C0;">>')
+print('<body style="background-color: #C0C0C0;">')
 
 connection = None
 try:
@@ -152,21 +152,27 @@ try:
 	# Displaying result
 	print('<form action="supervisorChange.cgi" method="post">')
 	print('<table border="5">')
-	print('<tr><td></td><td>Latitude</td><td>Longitude</td><td>Locality</td><td>Name</td><td>Address</td></tr>')
+	print('<tr><td>Latitude</td><td>Longitude</td><td>Locality</td><td>Name</td><td>Address</td></tr>')
 	for row in result:
 		print('<tr>')
 		gpslat = row[0]
 		gpslong = row[1]
-		print('<td><input type="radio" name="sub" value = "$gpslat:$gpslong" required></td>');
+		name = row[3]
+		address = row[4]
+		print('<input type="hidden" name="gpslong" value = "{}">'.format(row[1]))
+		print('<input type="hidden" name="gpslat" value = "{}">'.format(row[0]))
+		print('<input type="hidden" name="locality" value = "{}">'.format(row[2]))
+		print('<input type="hidden" name="name" value = "{}">'.format(row[3]))
+		print('<input type="hidden" name="address" value = "{}">'.format(row[4]))
 		print('<td>{}</td>'.format(gpslat))
 		print('<td>{}</td>'.format(gpslong))
 		print('<td>{}</td>'.format(row[2]))
 		print('<td>{}</td>'.format(row[3]))
 		print('<td>{}</td>'.format(row[4]))
 		print('<td><a href="deleteSubstation.cgi?gpslat={}&gpslong={}">Delete</a></td>'.format(gpslat,gpslong))
+		print('<td><a href="supervisorChange.cgi?gpslat={}&gpslong={}&sname={}&saddress={}">Change Supervisor</a></td>'.format(gpslat,gpslong,row[3],row[4]))
 		print('</tr>')
 	print('</table>')
-	print('<button class="button button1" type="submit">Change Supervisor</button>')
 	print('</form>')
 
 	print('<a href="index.cgi" class="button button2">Back to Main Page</a><br>')

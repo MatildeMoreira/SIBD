@@ -117,7 +117,7 @@ print('}')
 
 print('</style>')
 
-print('<body style="background-color: #C0C0C0;">>')
+print('<body style="background-color: #C0C0C0;">')
 
 connection = None
 try:
@@ -154,7 +154,7 @@ try:
 		address_person = row[1]
 		print('<td>{}</td>'.format(name_person))
 		print('<td>{}</td>'.format(address_person))
-		print('<td><a href="deleteSupervisor.cgi?name={}&address={}">Delete Person</a></td>'.format(name_person,address_person))
+		print('<td><a href="deleteSupervisor.cgi?name={}&address={}">Delete</a></td>'.format(name_person,address_person))
 		print('</tr>')
 	print('</table>')
 
